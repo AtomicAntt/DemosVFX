@@ -1,0 +1,117 @@
+[gd_scene format=3 uid="uid://dan8hq0f75wje"]
+
+[ext_resource type="Material" uid="uid://bcw01re4p2xgl" path="res://Shaders/TornadoMaterial.tres" id="1_my2rs"]
+[ext_resource type="ArrayMesh" uid="uid://befruobahdm77" path="res://Meshes/Tornado.obj" id="2_lcvof"]
+[ext_resource type="Shader" uid="uid://ci00pn22mmdc" path="res://Shaders/disolver.tres" id="3_0njg6"]
+[ext_resource type="Texture2D" uid="uid://jnhsi7qy08r2" path="res://Textures/T_FirePanningCyl45.png" id="4_i3sfn"]
+[ext_resource type="ArrayMesh" uid="uid://dgxtmhdp2my76" path="res://Meshes/Wind.obj" id="5_f535x"]
+
+[sub_resource type="Animation" id="Animation_0xm2m"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TornadoMesh:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_h2yge"]
+resource_name = "Spin"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TornadoMesh:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 6.2831855, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1bvp3"]
+_data = {
+&"RESET": SubResource("Animation_0xm2m"),
+&"Spin": SubResource("Animation_h2yge")
+}
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lquwl"]
+render_priority = 0
+shader = ExtResource("3_0njg6")
+shader_parameter/Texture2DParameter = ExtResource("4_i3sfn")
+
+[sub_resource type="Curve" id="Curve_lquwl"]
+_data = [Vector2(0, 0.20114177), 0.0, 0.0, 0, 0, Vector2(1, 1), 2.5930138, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_7mycd"]
+texture_mode = 1
+curve = SubResource("Curve_lquwl")
+
+[sub_resource type="Gradient" id="Gradient_lquwl"]
+offsets = PackedFloat32Array(0, 0.38931298, 0.860687)
+colors = PackedColorArray(0.2702219, 0.27022195, 0.27022177, 1, 0.5766012, 0.7028369, 0.79355025, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_7mycd"]
+gradient = SubResource("Gradient_lquwl")
+
+[sub_resource type="Curve" id="Curve_7mycd"]
+_data = [Vector2(0, 0.17058438), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_272bh"]
+curve = SubResource("Curve_7mycd")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_1bvp3"]
+particle_flag_rotate_y = true
+angle_min = -179.99998
+angle_max = 180.00002
+direction = Vector3(0, 1, 0)
+initial_velocity_max = 3.0
+angular_velocity_min = 349.99997
+angular_velocity_max = 499.99997
+gravity = Vector3(0, 0, 0)
+scale_min = 2.0
+scale_max = 3.0
+scale_curve = SubResource("CurveTexture_272bh")
+color_ramp = SubResource("GradientTexture1D_7mycd")
+alpha_curve = SubResource("CurveTexture_7mycd")
+
+[node name="TornadoVFX" type="Node3D" unique_id=1748017654]
+
+[node name="TornadoMesh" type="MeshInstance3D" parent="." unique_id=251603304]
+material_override = ExtResource("1_my2rs")
+cast_shadow = 0
+mesh = ExtResource("2_lcvof")
+skeleton = NodePath("../..")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1154442244]
+libraries/ = SubResource("AnimationLibrary_1bvp3")
+
+[node name="BaseWaves" type="GPUParticles3D" parent="." unique_id=2063752895]
+transform = Transform3D(1, 0, 0, 0, 0.93056464, -0.3661277, 0, 0.3661277, 0.93056464, 0, -0.301, 0)
+material_override = SubResource("ShaderMaterial_lquwl")
+cast_shadow = 0
+lifetime = 0.5
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_1bvp3")
+draw_pass_1 = ExtResource("5_f535x")
+
+[node name="BaseWaves2" type="GPUParticles3D" parent="." unique_id=1395493667]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.27, 0)
+material_override = SubResource("ShaderMaterial_lquwl")
+cast_shadow = 0
+lifetime = 0.5
+fixed_fps = 60
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_1bvp3")
+draw_pass_1 = ExtResource("5_f535x")
