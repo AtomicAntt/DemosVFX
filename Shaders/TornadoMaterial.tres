@@ -1,0 +1,28 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://bcw01re4p2xgl"]
+
+[ext_resource type="Shader" uid="uid://byymj24w7im30" path="res://Shaders/tornado.tres" id="1_3m5jt"]
+[ext_resource type="Texture2D" uid="uid://cqvsn0ygguu4k" path="res://Textures/T_VFX_WindNoise1.png" id="2_8srgs"]
+
+[sub_resource type="Gradient" id="Gradient_0xm2m"]
+offsets = PackedFloat32Array(0.05597015, 0.60820895, 0.70708954, 0.9477612)
+colors = PackedColorArray(0.039215688, 0.20392157, 0.30588236, 0, 0.76457876, 0.85205084, 0.9699252, 1, 0.68612987, 0.94376063, 0.97788185, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_h2yge"]
+gradient = SubResource("Gradient_0xm2m")
+
+[sub_resource type="Gradient" id="Gradient_h2yge"]
+offsets = PackedFloat32Array(0, 0.08064516, 0.91977614, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_1bvp3"]
+gradient = SubResource("Gradient_h2yge")
+fill_from = Vector2(1, 1)
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_3m5jt")
+shader_parameter/Speed_XY = Vector2(-0.8, 1.2)
+shader_parameter/Base_Texture = ExtResource("2_8srgs")
+shader_parameter/Subtraction_Texture = SubResource("GradientTexture2D_1bvp3")
+shader_parameter/Color_1D_Gradient = SubResource("GradientTexture1D_h2yge")
+shader_parameter/Alpha_Scissor_Threshold = 0.45600002166
