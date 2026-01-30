@@ -4,8 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://cqvsn0ygguu4k" path="res://Textures/T_VFX_WindNoise1.png" id="2_8srgs"]
 
 [sub_resource type="Gradient" id="Gradient_0xm2m"]
-offsets = PackedFloat32Array(0.05597015, 0.60820895, 0.70708954, 0.9477612)
-colors = PackedColorArray(0.039215688, 0.20392157, 0.30588236, 0, 0.76457876, 0.85205084, 0.9699252, 1, 0.68612987, 0.94376063, 0.97788185, 1, 1, 1, 1, 1)
+offsets = PackedFloat32Array(0.05597015, 0.625, 0.69402987, 0.9477612)
+colors = PackedColorArray(0.039215688, 0.20392157, 0.30588236, 0, 0.89548004, 0.9342543, 0.98670965, 1, 0.8174404, 0.96739334, 0.9872957, 1, 1, 1, 1, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_h2yge"]
 gradient = SubResource("Gradient_0xm2m")
