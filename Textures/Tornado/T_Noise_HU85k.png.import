@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b3uraxf3t4y3r"
-path.s3tc="res://.godot/imported/T_Noise_HU85k.png-66d4ee4aadb86d8a0de0c58d06be8f6e.s3tc.ctex"
+path.s3tc="res://.godot/imported/T_Noise_HU85k.png-21e22ab92dc165b51e5f38bc8e40aa6f.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Textures/T_Noise_HU85k.png"
-dest_files=["res://.godot/imported/T_Noise_HU85k.png-66d4ee4aadb86d8a0de0c58d06be8f6e.s3tc.ctex"]
+source_file="res://Textures/Tornado/T_Noise_HU85k.png"
+dest_files=["res://.godot/imported/T_Noise_HU85k.png-21e22ab92dc165b51e5f38bc8e40aa6f.s3tc.ctex"]
 
 [params]
 

@@ -1,7 +1,7 @@
 [gd_resource type="ShaderMaterial" format=3 uid="uid://bcw01re4p2xgl"]
 
 [ext_resource type="Shader" uid="uid://byymj24w7im30" path="res://Shaders/tornado.tres" id="1_3m5jt"]
-[ext_resource type="Texture2D" uid="uid://cqvsn0ygguu4k" path="res://Textures/T_VFX_WindNoise1.png" id="2_8srgs"]
+[ext_resource type="Texture2D" uid="uid://cqvsn0ygguu4k" path="res://Textures/Tornado/T_VFX_WindNoise1.png" id="2_8srgs"]
 
 [sub_resource type="Gradient" id="Gradient_0xm2m"]
 offsets = PackedFloat32Array(0.05597015, 0.625, 0.69402987, 0.9477612)

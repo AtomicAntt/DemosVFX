@@ -15,7 +15,7 @@ input_name = "color"
 [resource]
 modes/cull = 2
 flags/unshaded = true
-preview_params/Texture2DParameter = "Resource(\"uid://jnhsi7qy08r2\", \"res://Textures/T_FirePanningCyl45.png\")"
+preview_params/Texture2DParameter = "Resource(\"uid://jnhsi7qy08r2\", \"res://Textures/Tornado/T_FirePanningCyl45.png\")"
 nodes/fragment/2/node = SubResource("VisualShaderNodeTexture2DParameter_1mbkq")
 nodes/fragment/2/position = Vector2(-320, 480)
 nodes/fragment/3/node = SubResource("VisualShaderNodeTexture_ng8lv")

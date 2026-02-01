@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://baam5foffri12"]
+
+[ext_resource type="Shader" uid="uid://ce1xthiiqacvi" path="res://Shaders/fire.tres" id="1_157qj"]
+[ext_resource type="Texture2D" uid="uid://cl3trj2bgt5fv" path="res://Textures/StylizedFire/Distortion.png" id="2_52y13"]
+[ext_resource type="Texture2D" uid="uid://iqxrbbnfwdsd" path="res://Textures/StylizedFire/stylized_fire.png" id="2_fj2n0"]
+
+[sub_resource type="Gradient" id="Gradient_52y13"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_lu85s"]
+gradient = SubResource("Gradient_52y13")
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0, 0.5769231)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fj2n0"]
+render_priority = 0
+shader = ExtResource("1_157qj")
+shader_parameter/ColorParameter = Color(4.0001154, 0.8045594, 0, 1)
+shader_parameter/Speed_XY = Vector2(0, 1)
+shader_parameter/Distortion = ExtResource("2_52y13")
+shader_parameter/DistortionGradient = SubResource("GradientTexture2D_lu85s")
+shader_parameter/FireTexture = ExtResource("2_fj2n0")
+
+[sub_resource type="QuadMesh" id="QuadMesh_52y13"]
+
+[node name="FireVFX" type="Node3D" unique_id=1682148906]
+
+[node name="FireMesh" type="MeshInstance3D" parent="." unique_id=1578064334]
+material_override = SubResource("ShaderMaterial_fj2n0")
+mesh = SubResource("QuadMesh_52y13")

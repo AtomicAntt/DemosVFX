@@ -3,7 +3,7 @@
 [ext_resource type="Material" uid="uid://bcw01re4p2xgl" path="res://Shaders/TornadoMaterial.tres" id="1_my2rs"]
 [ext_resource type="ArrayMesh" uid="uid://befruobahdm77" path="res://Meshes/Tornado.obj" id="2_lcvof"]
 [ext_resource type="Shader" uid="uid://ci00pn22mmdc" path="res://Shaders/disolver.tres" id="3_0njg6"]
-[ext_resource type="Texture2D" uid="uid://jnhsi7qy08r2" path="res://Textures/T_FirePanningCyl45.png" id="4_i3sfn"]
+[ext_resource type="Texture2D" uid="uid://jnhsi7qy08r2" path="res://Textures/Tornado/T_FirePanningCyl45.png" id="4_i3sfn"]
 [ext_resource type="ArrayMesh" uid="uid://dgxtmhdp2my76" path="res://Meshes/Wind.obj" id="5_f535x"]
 
 [sub_resource type="Animation" id="Animation_0xm2m"]

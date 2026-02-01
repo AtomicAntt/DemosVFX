@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dgaedp8u0k3t3"
-path.s3tc="res://.godot/imported/T_Noise1_nk.png-8c40028eacea8d170331c8f8a389f4d0.s3tc.ctex"
+uid="uid://jnhsi7qy08r2"
+path.s3tc="res://.godot/imported/T_FirePanningCyl45.png-e36185adb8028c75532d4a6e3547324b.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Textures/T_Noise1_nk.png"
-dest_files=["res://.godot/imported/T_Noise1_nk.png-8c40028eacea8d170331c8f8a389f4d0.s3tc.ctex"]
+source_file="res://Textures/Tornado/T_FirePanningCyl45.png"
+dest_files=["res://.godot/imported/T_FirePanningCyl45.png-e36185adb8028c75532d4a6e3547324b.s3tc.ctex"]
 
 [params]
 

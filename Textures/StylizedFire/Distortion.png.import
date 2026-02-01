@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cqvsn0ygguu4k"
-path.s3tc="res://.godot/imported/T_VFX_WindNoise1.png-39adc131778b4fdc8e7917a088156b76.s3tc.ctex"
+uid="uid://cl3trj2bgt5fv"
+path.s3tc="res://.godot/imported/Distortion.png-1131784ef9e13ce29eeb7e4d7b011ad7.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Textures/T_VFX_WindNoise1.png"
-dest_files=["res://.godot/imported/T_VFX_WindNoise1.png-39adc131778b4fdc8e7917a088156b76.s3tc.ctex"]
+source_file="res://Textures/StylizedFire/Distortion.png"
+dest_files=["res://.godot/imported/Distortion.png-1131784ef9e13ce29eeb7e4d7b011ad7.s3tc.ctex"]
 
 [params]
 
