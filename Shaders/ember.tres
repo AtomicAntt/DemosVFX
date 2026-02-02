@@ -1,0 +1,28 @@
+[gd_resource type="VisualShader" format=3 uid="uid://b03jjlocs7r0u"]
+
+[sub_resource type="VisualShaderNodeTexture2DParameter" id="VisualShaderNodeTexture2DParameter_55baw"]
+parameter_name = "EmberTexture"
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_exjm1"]
+expanded_output_ports = [0]
+source = 5
+texture_type = 1
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_55baw"]
+input_name = "color"
+
+[sub_resource type="VisualShaderNodeBillboard" id="VisualShaderNodeBillboard_55baw"]
+billboard_type = 3
+keep_scale = true
+
+[resource]
+nodes/vertex/2/node = SubResource("VisualShaderNodeBillboard_55baw")
+nodes/vertex/2/position = Vector2(40.216286, 238.59091)
+nodes/vertex/connections = PackedInt32Array(2, 0, 0, 10)
+nodes/fragment/2/node = SubResource("VisualShaderNodeTexture2DParameter_55baw")
+nodes/fragment/2/position = Vector2(-300, 300)
+nodes/fragment/3/node = SubResource("VisualShaderNodeTexture_exjm1")
+nodes/fragment/3/position = Vector2(-260, 60)
+nodes/fragment/4/node = SubResource("VisualShaderNodeInput_55baw")
+nodes/fragment/4/position = Vector2(-200, -180)
+nodes/fragment/connections = PackedInt32Array(2, 0, 3, 2, 3, 0, 0, 1, 4, 0, 0, 0)

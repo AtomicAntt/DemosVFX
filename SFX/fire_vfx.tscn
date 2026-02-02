@@ -3,8 +3,10 @@
 [ext_resource type="Shader" uid="uid://ce1xthiiqacvi" path="res://Shaders/fire.tres" id="1_157qj"]
 [ext_resource type="Texture2D" uid="uid://cl3trj2bgt5fv" path="res://Textures/StylizedFire/Distortion.png" id="2_52y13"]
 [ext_resource type="Texture2D" uid="uid://iqxrbbnfwdsd" path="res://Textures/StylizedFire/stylized_fire.png" id="2_fj2n0"]
-[ext_resource type="Shader" uid="uid://c7aqbjhg0oa5k" path="res://SFX/smoke.tres" id="4_lu85s"]
+[ext_resource type="Shader" uid="uid://c7aqbjhg0oa5k" path="res://Shaders/smoke.tres" id="4_lu85s"]
 [ext_resource type="Texture2D" uid="uid://cwr7ue8b6rnme" path="res://Textures/StylizedFire/Smoke.png" id="5_ug3c0"]
+[ext_resource type="Shader" uid="uid://b03jjlocs7r0u" path="res://Shaders/ember.tres" id="6_opf2d"]
+[ext_resource type="Texture2D" uid="uid://f6kqnjuj0bkq" path="res://Textures/StylizedFire/Ember.png" id="7_pxppv"]
 
 [sub_resource type="Gradient" id="Gradient_52y13"]
 
@@ -27,11 +29,17 @@ shader_parameter/FireTexture = ExtResource("2_fj2n0")
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ug3c0"]
 render_priority = 0
 shader = ExtResource("4_lu85s")
-shader_parameter/ColorParameter = Color(1.183, 0.663, 0.528, 1)
 shader_parameter/Texture2DParameter = ExtResource("5_ug3c0")
 
+[sub_resource type="Gradient" id="Gradient_pxppv"]
+offsets = PackedFloat32Array(0, 0.5305343, 1)
+colors = PackedColorArray(0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_0nif5"]
+gradient = SubResource("Gradient_pxppv")
+
 [sub_resource type="Curve" id="Curve_ug3c0"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.14663613), 0.0, 0.0, 0, 0]
 point_count = 2
 
 [sub_resource type="CurveTexture" id="CurveTexture_opf2d"]
@@ -50,12 +58,40 @@ damping_max = 2.2
 scale_min = 0.5
 scale_curve = SubResource("CurveTexture_opf2d")
 color = Color(1.183, 0.663, 0.528, 1)
+color_ramp = SubResource("GradientTexture1D_0nif5")
 
 [sub_resource type="QuadMesh" id="QuadMesh_lu85s"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1rdpr"]
+render_priority = 0
+shader = ExtResource("6_opf2d")
+shader_parameter/EmberTexture = ExtResource("7_pxppv")
+
+[sub_resource type="CurveTexture" id="CurveTexture_pxppv"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_1s335"]
+emission_shape = 1
+emission_sphere_radius = 0.3
+orbit_velocity_min = -0.78199995
+orbit_velocity_max = 9.49949e-08
+gravity = Vector3(0, 6, 0)
+tangential_accel_min = -2.2351742e-06
+tangential_accel_max = 6.3999977
+scale_min = 0.5
+scale_max = 0.5
+color = Color(1.4439728, 0.7645096, 0.04332029, 1)
+turbulence_influence_min = 0.125
+turbulence_influence_max = 0.44500002
+turbulence_initial_displacement_min = -26.499998
+turbulence_initial_displacement_max = 1.490116e-06
+turbulence_influence_over_life = SubResource("CurveTexture_pxppv")
+
+[sub_resource type="QuadMesh" id="QuadMesh_vwh7c"]
 
 [node name="FireVFX" type="Node3D" unique_id=1682148906]
 
 [node name="FireMesh" type="MeshInstance3D" parent="." unique_id=1578064334]
+transform = Transform3D(0.9998988, 0.0096363565, 0.010463311, -0.0093163615, 0.9995001, -0.030212035, -0.010749216, 0.030111497, 0.9994887, 0, 0.185664, 0.068247646)
 sorting_offset = 2.0
 material_override = SubResource("ShaderMaterial_fj2n0")
 mesh = SubResource("QuadMesh_52y13")
@@ -63,8 +99,14 @@ mesh = SubResource("QuadMesh_52y13")
 [node name="Smoke" type="GPUParticles3D" parent="." unique_id=60091573]
 material_override = SubResource("ShaderMaterial_ug3c0")
 amount = 15
-lifetime = 1.5999999999999999
+lifetime = 1.6
 randomness = 0.1
 fixed_fps = 60
 process_material = SubResource("ParticleProcessMaterial_52y13")
 draw_pass_1 = SubResource("QuadMesh_lu85s")
+
+[node name="Embers" type="GPUParticles3D" parent="." unique_id=2112877796]
+material_override = SubResource("ShaderMaterial_1rdpr")
+amount = 20
+process_material = SubResource("ParticleProcessMaterial_1s335")
+draw_pass_1 = SubResource("QuadMesh_vwh7c")

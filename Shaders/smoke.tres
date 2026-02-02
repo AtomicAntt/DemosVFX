@@ -8,10 +8,6 @@ expanded_output_ports = [0]
 source = 5
 texture_type = 1
 
-[sub_resource type="VisualShaderNodeColorParameter" id="VisualShaderNodeColorParameter_tqsvf"]
-expanded_output_ports = [0]
-parameter_name = "ColorParameter"
-
 [sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_6ppqy"]
 default_input_values = [0, Quaternion(0, 0, 0, 0), 1, Quaternion(0, 0, 0, 0)]
 op_type = 2
@@ -19,6 +15,10 @@ operator = 2
 
 [sub_resource type="VisualShaderNodeFloatOp" id="VisualShaderNodeFloatOp_5sgfb"]
 operator = 2
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_8b5eq"]
+expanded_output_ports = [0]
+input_name = "color"
 
 [sub_resource type="VisualShaderNodeBillboard" id="VisualShaderNodeBillboard_8b5eq"]
 billboard_type = 3
@@ -29,13 +29,13 @@ nodes/vertex/2/node = SubResource("VisualShaderNodeBillboard_8b5eq")
 nodes/vertex/2/position = Vector2(0, 340)
 nodes/vertex/connections = PackedInt32Array(2, 0, 0, 10)
 nodes/fragment/2/node = SubResource("VisualShaderNodeTexture2DParameter_8b5eq")
-nodes/fragment/2/position = Vector2(-440, 360)
+nodes/fragment/2/position = Vector2(-460, 400)
 nodes/fragment/3/node = SubResource("VisualShaderNodeTexture_ffi2p")
-nodes/fragment/3/position = Vector2(-380, 160)
-nodes/fragment/4/node = SubResource("VisualShaderNodeColorParameter_tqsvf")
-nodes/fragment/4/position = Vector2(-400, -180)
+nodes/fragment/3/position = Vector2(-400, 140)
 nodes/fragment/5/node = SubResource("VisualShaderNodeVectorOp_6ppqy")
 nodes/fragment/5/position = Vector2(20, -120)
 nodes/fragment/6/node = SubResource("VisualShaderNodeFloatOp_5sgfb")
 nodes/fragment/6/position = Vector2(100, 380)
-nodes/fragment/connections = PackedInt32Array(2, 0, 3, 2, 3, 0, 5, 1, 4, 0, 5, 0, 5, 0, 0, 0, 4, 1, 6, 0, 3, 1, 6, 1, 6, 0, 0, 1)
+nodes/fragment/7/node = SubResource("VisualShaderNodeInput_8b5eq")
+nodes/fragment/7/position = Vector2(-440, -200)
+nodes/fragment/connections = PackedInt32Array(2, 0, 3, 2, 3, 0, 5, 1, 5, 0, 0, 0, 6, 0, 0, 1, 7, 0, 5, 0, 3, 1, 6, 1, 7, 4, 6, 0)
