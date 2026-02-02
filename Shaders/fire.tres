@@ -74,6 +74,7 @@ preview_params/Distortion = "Resource(\"uid://cl3trj2bgt5fv\", \"res://Textures/
 preview_params/DistortionGradient = "Object(GradientTexture2D,\"resource_local_to_scene\":false,\"resource_name\":\"\",\"gradient\":Object(Gradient,\"resource_local_to_scene\":false,\"resource_name\":\"\",\"interpolation_mode\":0,\"interpolation_color_space\":0,\"offsets\":PackedFloat32Array(0, 1),\"colors\":PackedColorArray(0, 0, 0, 1, 1, 1, 1, 1),\"script\":null)
 ,\"width\":64,\"height\":64,\"use_hdr\":false,\"fill\":0,\"fill_from\":Vector2(0, 1),\"fill_to\":Vector2(0, 0.5769231),\"repeat\":0,\"script\":null)
 "
+preview_params/ColorParameter = "Color(4.0001154, 0.8045594, 0, 1)"
 nodes/vertex/2/node = SubResource("VisualShaderNodeBillboard_gtul6")
 nodes/vertex/2/position = Vector2(40, 220)
 nodes/vertex/connections = PackedInt32Array(2, 0, 0, 10)
