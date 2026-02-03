@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://7gwa41r7a7ub"]
 
-[ext_resource type="PackedScene" uid="uid://dan8hq0f75wje" path="res://SFX/tornado_vfx.tscn" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://dan8hq0f75wje" path="res://VFX/tornado_vfx.tscn" id="1_ig7tw"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_7dm0k"]
 size = Vector2(100, 100)
