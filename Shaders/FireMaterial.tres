@@ -1,0 +1,21 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://bpo6g5rdgrb2m"]
+
+[ext_resource type="Shader" uid="uid://ce1xthiiqacvi" path="res://Shaders/fire.tres" id="1_vuf2w"]
+[ext_resource type="Texture2D" uid="uid://cl3trj2bgt5fv" path="res://Textures/StylizedFire/Distortion.png" id="2_pqomb"]
+[ext_resource type="Texture2D" uid="uid://iqxrbbnfwdsd" path="res://Textures/StylizedFire/stylized_fire.png" id="3_cgldn"]
+
+[sub_resource type="Gradient" id="Gradient_52y13"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_lu85s"]
+gradient = SubResource("Gradient_52y13")
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0, 0.5769231)
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_vuf2w")
+shader_parameter/ColorParameter = Color(4.0001154, 0.8045594, 0, 1)
+shader_parameter/Speed_XY = Vector2(0, 1)
+shader_parameter/Distortion = ExtResource("2_pqomb")
+shader_parameter/DistortionGradient = SubResource("GradientTexture2D_lu85s")
+shader_parameter/FireTexture = ExtResource("3_cgldn")
