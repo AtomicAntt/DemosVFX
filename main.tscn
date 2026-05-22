@@ -1,6 +1,9 @@
 [gd_scene format=3 uid="uid://7gwa41r7a7ub"]
 
 [ext_resource type="PackedScene" uid="uid://dan8hq0f75wje" path="res://VFX/tornado_vfx.tscn" id="1_ig7tw"]
+[ext_resource type="Shader" uid="uid://bdiet6lhkr2qw" path="res://Shaders/3D/tiling.gdshader" id="2_0xm2m"]
+[ext_resource type="Texture2D" uid="uid://c23npfxwx3mbo" path="res://icon.svg" id="3_h2yge"]
+[ext_resource type="Shader" uid="uid://0ffq8dmj3gv" path="res://Shaders/3D/wavy.gdshader" id="4_1bvp3"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_7dm0k"]
 size = Vector2(100, 100)
@@ -8,12 +11,38 @@ size = Vector2(100, 100)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ig7tw"]
 albedo_color = Color(0.4166775, 0.4210115, 0.41994205, 1)
 
+[sub_resource type="PlaneMesh" id="PlaneMesh_h2yge"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0xm2m"]
+render_priority = 0
+shader = ExtResource("2_0xm2m")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/texture_albedo = ExtResource("3_h2yge")
+shader_parameter/tiling = Vector2(2, 2)
+shader_parameter/offset = Vector2(1, 0)
+
+[sub_resource type="SphereMesh" id="SphereMesh_lquwl"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7mycd"]
+render_priority = 0
+shader = ExtResource("4_1bvp3")
+
 [node name="Main" type="Node3D" unique_id=1517051098]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=2057379207]
+[node name="Floor" type="MeshInstance3D" parent="." unique_id=2057379207]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.37554455, 0)
 mesh = SubResource("PlaneMesh_7dm0k")
 surface_material_override/0 = SubResource("StandardMaterial3D_ig7tw")
 
 [node name="TornadoVFX" parent="." unique_id=1748017654 instance=ExtResource("1_ig7tw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.082989, 1.4111466, 0)
+
+[node name="PanningVFX" type="MeshInstance3D" parent="." unique_id=1891988193]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -7.661277, 5.8160086, 0)
+mesh = SubResource("PlaneMesh_h2yge")
+surface_material_override/0 = SubResource("ShaderMaterial_0xm2m")
+
+[node name="WavyVFX" type="MeshInstance3D" parent="." unique_id=13710903]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.8136888, 0)
+mesh = SubResource("SphereMesh_lquwl")
+surface_material_override/0 = SubResource("ShaderMaterial_7mycd")

@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://baam5foffri12"]
 
-[ext_resource type="Material" uid="uid://bpo6g5rdgrb2m" path="res://Shaders/FireMaterial.tres" id="1_ug3c0"]
-[ext_resource type="Shader" uid="uid://c7aqbjhg0oa5k" path="res://Shaders/smoke.tres" id="4_lu85s"]
+[ext_resource type="Material" uid="uid://bpo6g5rdgrb2m" path="res://Shaders/3D/FireMaterial.tres" id="1_ug3c0"]
+[ext_resource type="Shader" uid="uid://c7aqbjhg0oa5k" path="res://Shaders/3D/smoke.tres" id="4_lu85s"]
 [ext_resource type="Texture2D" uid="uid://cwr7ue8b6rnme" path="res://Textures/StylizedFire/Smoke.png" id="5_ug3c0"]
-[ext_resource type="Shader" uid="uid://b03jjlocs7r0u" path="res://Shaders/ember.tres" id="6_opf2d"]
+[ext_resource type="Shader" uid="uid://b03jjlocs7r0u" path="res://Shaders/3D/ember.tres" id="6_opf2d"]
 [ext_resource type="Texture2D" uid="uid://f6kqnjuj0bkq" path="res://Textures/StylizedFire/Ember.png" id="7_pxppv"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_52y13"]

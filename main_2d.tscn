@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://dw4u36wrxcpux"]
+
+[ext_resource type="Shader" uid="uid://dafmwru6vg8pi" path="res://Shaders/2D/CircularFade.gdshader" id="1_4l5f2"]
+[ext_resource type="Texture2D" uid="uid://c23npfxwx3mbo" path="res://icon.svg" id="2_8hhxv"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jmyjl"]
+shader = ExtResource("1_4l5f2")
+shader_parameter/fade = 1.0
+shader_parameter/blur = 0.01999999955296
+
+[node name="Main2D" type="Node2D" unique_id=1577266972]
+metadata/Interesting = false
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1110593825]
+material = SubResource("ShaderMaterial_jmyjl")
+texture = ExtResource("2_8hhxv")
