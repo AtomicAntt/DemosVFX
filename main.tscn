@@ -4,12 +4,21 @@
 [ext_resource type="Shader" uid="uid://bdiet6lhkr2qw" path="res://Shaders/3D/tiling.gdshader" id="2_0xm2m"]
 [ext_resource type="Texture2D" uid="uid://c23npfxwx3mbo" path="res://icon.svg" id="3_h2yge"]
 [ext_resource type="Shader" uid="uid://0ffq8dmj3gv" path="res://Shaders/3D/wavy.gdshader" id="4_1bvp3"]
+[ext_resource type="Shader" uid="uid://m8jw0kqe6s31" path="res://Shaders/3D/circularfade.gdshader" id="5_lquwl"]
+[ext_resource type="Script" uid="uid://bilwml44ko6sk" path="res://circular_fade_2d.gd" id="6_7mycd"]
+[ext_resource type="Shader" uid="uid://dbgw8t2d4kyvi" path="res://Shaders/3D/fresnel.gdshader" id="7_272bh"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_7dm0k"]
 size = Vector2(100, 100)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ig7tw"]
 albedo_color = Color(0.4166775, 0.4210115, 0.41994205, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_lquwl"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7mycd"]
+render_priority = 0
+shader = ExtResource("4_1bvp3")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_h2yge"]
 
@@ -21,11 +30,22 @@ shader_parameter/texture_albedo = ExtResource("3_h2yge")
 shader_parameter/tiling = Vector2(2, 2)
 shader_parameter/offset = Vector2(1, 0)
 
-[sub_resource type="SphereMesh" id="SphereMesh_lquwl"]
+[sub_resource type="QuadMesh" id="QuadMesh_7mycd"]
+size = Vector2(2, 2)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_7mycd"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_272bh"]
 render_priority = 0
-shader = ExtResource("4_1bvp3")
+shader = ExtResource("5_lquwl")
+shader_parameter/fade = 0.999999977648
+shader_parameter/blur = 0.1
+shader_parameter/texture_albedo = ExtResource("3_h2yge")
+
+[sub_resource type="TorusMesh" id="TorusMesh_5vw27"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kek77"]
+render_priority = 0
+shader = ExtResource("7_272bh")
+shader_parameter/texture_albedo = ExtResource("3_h2yge")
 
 [node name="Main" type="Node3D" unique_id=1517051098]
 
@@ -34,15 +54,26 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.37554455, 0)
 mesh = SubResource("PlaneMesh_7dm0k")
 surface_material_override/0 = SubResource("StandardMaterial3D_ig7tw")
 
-[node name="TornadoVFX" parent="." unique_id=1748017654 instance=ExtResource("1_ig7tw")]
+[node name="Tornado" parent="." unique_id=1748017654 instance=ExtResource("1_ig7tw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.082989, 1.4111466, 0)
 
-[node name="PanningVFX" type="MeshInstance3D" parent="." unique_id=1891988193]
+[node name="Wavy" type="MeshInstance3D" parent="." unique_id=13710903]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.8136888, 0)
+mesh = SubResource("SphereMesh_lquwl")
+surface_material_override/0 = SubResource("ShaderMaterial_7mycd")
+
+[node name="Panning2D" type="MeshInstance3D" parent="." unique_id=1891988193]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -7.661277, 5.8160086, 0)
 mesh = SubResource("PlaneMesh_h2yge")
 surface_material_override/0 = SubResource("ShaderMaterial_0xm2m")
 
-[node name="WavyVFX" type="MeshInstance3D" parent="." unique_id=13710903]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.8136888, 0)
-mesh = SubResource("SphereMesh_lquwl")
-surface_material_override/0 = SubResource("ShaderMaterial_7mycd")
+[node name="CircularFade2D" type="MeshInstance3D" parent="." unique_id=1841276959]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.727763, 9.211744, 0)
+mesh = SubResource("QuadMesh_7mycd")
+surface_material_override/0 = SubResource("ShaderMaterial_272bh")
+script = ExtResource("6_7mycd")
+
+[node name="Fresnel" type="MeshInstance3D" parent="." unique_id=1290838822]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 8.919197, 0)
+mesh = SubResource("TorusMesh_5vw27")
+surface_material_override/0 = SubResource("ShaderMaterial_kek77")

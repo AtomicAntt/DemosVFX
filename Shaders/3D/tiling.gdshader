@@ -1,8 +1,8 @@
 shader_type spatial;
-render_mode blend_mix, depth_draw_opaque;
+render_mode blend_mix, depth_draw_opaque, cull_disabled;
 
 uniform vec4 albedo : source_color;
-uniform sampler2D texture_albedo : source_color, filter_linear_mipmap, repeat_enable;
+uniform sampler2D texture_albedo;
 uniform vec2 tiling = vec2(2.0, 2.0);
 uniform vec2 offset = vec2(1.0, 0.0);
 

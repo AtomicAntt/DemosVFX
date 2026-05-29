@@ -86,7 +86,7 @@ scale_curve = SubResource("CurveTexture_272bh")
 color_ramp = SubResource("GradientTexture1D_7mycd")
 alpha_curve = SubResource("CurveTexture_7mycd")
 
-[node name="TornadoVFX" type="Node3D" unique_id=1748017654]
+[node name="Tornado" type="Node3D" unique_id=1748017654]
 
 [node name="TornadoMesh" type="MeshInstance3D" parent="." unique_id=251603304]
 material_override = ExtResource("1_my2rs")

@@ -1,16 +1,70 @@
 [gd_scene format=3 uid="uid://dw4u36wrxcpux"]
 
-[ext_resource type="Shader" uid="uid://dafmwru6vg8pi" path="res://Shaders/2D/CircularFade.gdshader" id="1_4l5f2"]
+[ext_resource type="Shader" uid="uid://dafmwru6vg8pi" path="res://Shaders/2D/circular_fade.gdshader" id="1_4l5f2"]
 [ext_resource type="Texture2D" uid="uid://c23npfxwx3mbo" path="res://icon.svg" id="2_8hhxv"]
+[ext_resource type="Shader" uid="uid://cfgrse3kqh4e" path="res://Shaders/2D/half_step.gdshader" id="3_1hbw6"]
+[ext_resource type="Shader" uid="uid://c66e6yeutqu4x" path="res://Shaders/2D/simple_gradient.gdshader" id="3_8hhxv"]
+[ext_resource type="Shader" uid="uid://2tqeagearly3" path="res://Shaders/2D/exponential_gradient.gdshader" id="3_jmyjl"]
+[ext_resource type="Shader" uid="uid://dgr4felivwqmd" path="res://Shaders/2D/two_color_mix.gdshader" id="3_ofc6w"]
+[ext_resource type="Shader" uid="uid://bir48uoim7j4o" path="res://Shaders/2D/half_smoothstep.gdshader" id="3_t7h21"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_jmyjl"]
 shader = ExtResource("1_4l5f2")
-shader_parameter/fade = 1.0
+shader_parameter/fade = 0.40000000596048
 shader_parameter/blur = 0.01999999955296
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yhyqj"]
+shader = ExtResource("3_ofc6w")
+shader_parameter/albedo1 = Color(1, 0, 1, 1)
+shader_parameter/albedo2 = Color(1, 1, 0, 1)
+shader_parameter/speed = 5.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_13uql"]
+shader = ExtResource("3_t7h21")
+shader_parameter/blur = 0.20000000298023
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ofc6w"]
+shader = ExtResource("3_1hbw6")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_t7h21"]
+shader = ExtResource("3_jmyjl")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1hbw6"]
+shader = ExtResource("3_8hhxv")
 
 [node name="Main2D" type="Node2D" unique_id=1577266972]
 metadata/Interesting = false
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1110593825]
+[node name="CircularFade" type="Sprite2D" parent="." unique_id=1110593825]
 material = SubResource("ShaderMaterial_jmyjl")
+position = Vector2(-412, 0)
+texture = ExtResource("2_8hhxv")
+
+[node name="TwoColorMix" type="Sprite2D" parent="." unique_id=1040170356]
+material = SubResource("ShaderMaterial_yhyqj")
+rotation = 0.00017340037
+texture = ExtResource("2_8hhxv")
+
+[node name="HalfSmoothStep2" type="Sprite2D" parent="." unique_id=1386532030]
+material = SubResource("ShaderMaterial_13uql")
+position = Vector2(700, 0)
+rotation = 0.00017340037
+texture = ExtResource("2_8hhxv")
+
+[node name="HalfStep" type="Sprite2D" parent="." unique_id=142132202]
+material = SubResource("ShaderMaterial_ofc6w")
+position = Vector2(0, 301.00003)
+rotation = 0.00017340037
+texture = ExtResource("2_8hhxv")
+
+[node name="ExponentialGradient" type="Sprite2D" parent="." unique_id=207243813]
+material = SubResource("ShaderMaterial_t7h21")
+position = Vector2(367, 0)
+rotation = 0.00017340037
+texture = ExtResource("2_8hhxv")
+
+[node name="SimpleGradient" type="Sprite2D" parent="." unique_id=1789122644]
+material = SubResource("ShaderMaterial_1hbw6")
+position = Vector2(0, -300)
+rotation = 0.00017340037
 texture = ExtResource("2_8hhxv")
