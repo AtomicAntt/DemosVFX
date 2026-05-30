@@ -18,8 +18,10 @@ shader_parameter/blur = 0.01999999955296
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_coknk"]
 shader = ExtResource("3_q6avo")
-shader_parameter/radius = 0.38400001498012
-shader_parameter/blur = 0.05
+shader_parameter/radius = 0.2
+shader_parameter/blur = 0.050000002375
+shader_parameter/pos1 = Vector2(0.1, 0.1)
+shader_parameter/pos2 = Vector2(-0.1, 0.1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_sxeyp"]
 shader = ExtResource("3_yhyqj")
