@@ -7,6 +7,7 @@
 [ext_resource type="Shader" uid="uid://bfphxwem63a4p" path="res://Shaders/2D/color_mix_gradient.gdshader" id="3_13uql"]
 [ext_resource type="Shader" uid="uid://2tqeagearly3" path="res://Shaders/2D/exponential_gradient.gdshader" id="3_jmyjl"]
 [ext_resource type="Shader" uid="uid://dgr4felivwqmd" path="res://Shaders/2D/two_color_mix.gdshader" id="3_ofc6w"]
+[ext_resource type="Shader" uid="uid://d0s5hs8kidfbo" path="res://Shaders/2D/circle.gdshader" id="3_q6avo"]
 [ext_resource type="Shader" uid="uid://bir48uoim7j4o" path="res://Shaders/2D/half_smoothstep.gdshader" id="3_t7h21"]
 [ext_resource type="Shader" uid="uid://1xrp0kb0gs1k" path="res://Shaders/2D/rectangle.gdshader" id="3_yhyqj"]
 
@@ -14,6 +15,11 @@
 shader = ExtResource("1_4l5f2")
 shader_parameter/fade = 0.40000000596048
 shader_parameter/blur = 0.01999999955296
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_coknk"]
+shader = ExtResource("3_q6avo")
+shader_parameter/radius = 0.38400001498012
+shader_parameter/blur = 0.05
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_sxeyp"]
 shader = ExtResource("3_yhyqj")
@@ -49,11 +55,17 @@ metadata/Interesting = false
 
 [node name="CircularFade" type="Sprite2D" parent="." unique_id=1110593825]
 material = SubResource("ShaderMaterial_jmyjl")
-position = Vector2(-412, 0)
+position = Vector2(-321, 0)
 texture = ExtResource("2_8hhxv")
 
-[node name="Rectangle" type="Sprite2D" parent="." unique_id=1040170356]
+[node name="Circle" type="Sprite2D" parent="." unique_id=1040170356]
+material = SubResource("ShaderMaterial_coknk")
+rotation = 0.00017340037
+texture = ExtResource("2_8hhxv")
+
+[node name="Rectangle2" type="Sprite2D" parent="." unique_id=1551878233]
 material = SubResource("ShaderMaterial_sxeyp")
+position = Vector2(-678, 0)
 rotation = 0.00017340037
 texture = ExtResource("2_8hhxv")
 

@@ -1,14 +1,13 @@
 shader_type canvas_item;
 
-void vertex() {
-	// Called for every vertex the material is visible on.
-}
+uniform float radius : hint_range(0.1, 0.9) = 0.3;
+uniform float blur : hint_range(0.0, 0.2) = 0.05;
 
 void fragment() {
-	// Called for every pixel the material is visible on.
+	// This is the distance from our center.
+	float dist = length(UV - vec2(0.5));
+	
+	//float value = 1.0 - step(radius, dist);
+	float value = 1.0 - smoothstep(radius-blur, radius+blur, dist);
+	COLOR.rgb = vec3(value);
 }
-
-//void light() {
-//	// Called for every pixel for every light affecting the CanvasItem.
-//	// Uncomment to replace the default light processing function with this one.
-//}
