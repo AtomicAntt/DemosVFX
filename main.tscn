@@ -5,7 +5,6 @@
 [ext_resource type="Texture2D" uid="uid://c23npfxwx3mbo" path="res://icon.svg" id="3_h2yge"]
 [ext_resource type="Shader" uid="uid://0ffq8dmj3gv" path="res://Shaders/3D/wavy.gdshader" id="4_1bvp3"]
 [ext_resource type="Shader" uid="uid://m8jw0kqe6s31" path="res://Shaders/3D/circularfade.gdshader" id="5_lquwl"]
-[ext_resource type="Script" uid="uid://bilwml44ko6sk" path="res://circular_fade_2d.gd" id="6_7mycd"]
 [ext_resource type="Shader" uid="uid://dbgw8t2d4kyvi" path="res://Shaders/3D/fresnel.gdshader" id="7_272bh"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_7dm0k"]
@@ -71,7 +70,6 @@ surface_material_override/0 = SubResource("ShaderMaterial_0xm2m")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.727763, 9.211744, 0)
 mesh = SubResource("QuadMesh_7mycd")
 surface_material_override/0 = SubResource("ShaderMaterial_272bh")
-script = ExtResource("6_7mycd")
 
 [node name="Fresnel" type="MeshInstance3D" parent="." unique_id=1290838822]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 8.919197, 0)
