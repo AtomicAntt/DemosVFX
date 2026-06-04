@@ -6,6 +6,7 @@
 [ext_resource type="Shader" uid="uid://c66e6yeutqu4x" path="res://Shaders/2D/simple_gradient.gdshader" id="3_8hhxv"]
 [ext_resource type="Shader" uid="uid://bfphxwem63a4p" path="res://Shaders/2D/color_mix_gradient.gdshader" id="3_13uql"]
 [ext_resource type="Shader" uid="uid://bu8js7h8g0t6r" path="res://Shaders/2D/cross.gdshader" id="3_coknk"]
+[ext_resource type="Shader" uid="uid://0gn0qyl5y47j" path="res://Shaders/2D/cross_rotate.gdshader" id="3_exwtt"]
 [ext_resource type="Shader" uid="uid://2tqeagearly3" path="res://Shaders/2D/exponential_gradient.gdshader" id="3_jmyjl"]
 [ext_resource type="Shader" uid="uid://dgr4felivwqmd" path="res://Shaders/2D/two_color_mix.gdshader" id="3_ofc6w"]
 [ext_resource type="Shader" uid="uid://d0s5hs8kidfbo" path="res://Shaders/2D/circle.gdshader" id="3_q6avo"]
@@ -15,13 +16,19 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_jmyjl"]
 shader = ExtResource("1_4l5f2")
-shader_parameter/fade = 0.40000000596048
+shader_parameter/fade = 0.45000000670554
 shader_parameter/blur = 0.01999999955296
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hlidw"]
+shader = ExtResource("3_exwtt")
+shader_parameter/cross_size = 0.2
+shader_parameter/pos1 = Vector2(0.2, 0.2)
+shader_parameter/pos2 = Vector2(-0.2, -0.2)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_twkok"]
 shader = ExtResource("3_coknk")
 shader_parameter/speed = 0.35
-shader_parameter/cross_size = 0.2
+shader_parameter/cross_size = 0.30000001425
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_exwtt"]
 shader = ExtResource("3_sxeyp")
@@ -73,8 +80,14 @@ material = SubResource("ShaderMaterial_jmyjl")
 position = Vector2(-321, 0)
 texture = ExtResource("2_8hhxv")
 
-[node name="Cross" type="Sprite2D" parent="." unique_id=1040170356]
+[node name="CrossRotate" type="Sprite2D" parent="." unique_id=1040170356]
+material = SubResource("ShaderMaterial_hlidw")
+rotation = 0.00017340037
+texture = ExtResource("2_8hhxv")
+
+[node name="Cross2" type="Sprite2D" parent="." unique_id=171067217]
 material = SubResource("ShaderMaterial_twkok")
+position = Vector2(-585, -315)
 rotation = 0.00017340037
 texture = ExtResource("2_8hhxv")
 
