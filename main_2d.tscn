@@ -3,21 +3,48 @@
 [ext_resource type="Shader" uid="uid://dafmwru6vg8pi" path="res://Shaders/2D/circular_fade.gdshader" id="1_4l5f2"]
 [ext_resource type="Texture2D" uid="uid://c23npfxwx3mbo" path="res://icon.svg" id="2_8hhxv"]
 [ext_resource type="Shader" uid="uid://cfgrse3kqh4e" path="res://Shaders/2D/half_step.gdshader" id="3_1hbw6"]
+[ext_resource type="Shader" uid="uid://c6ulv0t3ynd3t" path="res://Shaders/2D/bricks.gdshader" id="3_7arjl"]
 [ext_resource type="Shader" uid="uid://c66e6yeutqu4x" path="res://Shaders/2D/simple_gradient.gdshader" id="3_8hhxv"]
 [ext_resource type="Shader" uid="uid://bfphxwem63a4p" path="res://Shaders/2D/color_mix_gradient.gdshader" id="3_13uql"]
+[ext_resource type="Shader" uid="uid://bf1j2c8esit48" path="res://Shaders/2D/checkers.gdshader" id="3_ahvsh"]
 [ext_resource type="Shader" uid="uid://bu8js7h8g0t6r" path="res://Shaders/2D/cross.gdshader" id="3_coknk"]
 [ext_resource type="Shader" uid="uid://0gn0qyl5y47j" path="res://Shaders/2D/cross_rotate.gdshader" id="3_exwtt"]
+[ext_resource type="Shader" uid="uid://bdodxg8qcvneb" path="res://Shaders/2D/fract.gdshader" id="3_hlidw"]
 [ext_resource type="Shader" uid="uid://2tqeagearly3" path="res://Shaders/2D/exponential_gradient.gdshader" id="3_jmyjl"]
 [ext_resource type="Shader" uid="uid://dgr4felivwqmd" path="res://Shaders/2D/two_color_mix.gdshader" id="3_ofc6w"]
 [ext_resource type="Shader" uid="uid://d0s5hs8kidfbo" path="res://Shaders/2D/circle.gdshader" id="3_q6avo"]
 [ext_resource type="Shader" uid="uid://ivmxrrktaw8w" path="res://Shaders/2D/square.gdshader" id="3_sxeyp"]
 [ext_resource type="Shader" uid="uid://bir48uoim7j4o" path="res://Shaders/2D/half_smoothstep.gdshader" id="3_t7h21"]
+[ext_resource type="Shader" uid="uid://ba1eth11nfvm5" path="res://cross_scale.gdshader" id="3_twkok"]
+[ext_resource type="Shader" uid="uid://clmdb1j2gip3" path="res://Shaders/2D/square_fract.gdshader" id="3_w0t24"]
 [ext_resource type="Shader" uid="uid://1xrp0kb0gs1k" path="res://Shaders/2D/rectangle.gdshader" id="3_yhyqj"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_jmyjl"]
 shader = ExtResource("1_4l5f2")
 shader_parameter/fade = 0.45000000670554
 shader_parameter/blur = 0.01999999955296
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gedy8"]
+shader = ExtResource("3_ahvsh")
+shader_parameter/grid_size = 5.4630002594925
+shader_parameter/pan_direction = Vector2(1, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8c7tm"]
+shader = ExtResource("3_7arjl")
+shader_parameter/brick_width = 0.01
+shader_parameter/brick_rows = 4.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ahvsh"]
+shader = ExtResource("3_w0t24")
+shader_parameter/square_size = 0.2
+shader_parameter/grid_size = 3.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7arjl"]
+shader = ExtResource("3_hlidw")
+shader_parameter/circle_radius = 0.254000012065
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_w0t24"]
+shader = ExtResource("3_twkok")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hlidw"]
 shader = ExtResource("3_exwtt")
@@ -80,8 +107,38 @@ material = SubResource("ShaderMaterial_jmyjl")
 position = Vector2(-321, 0)
 texture = ExtResource("2_8hhxv")
 
-[node name="CrossRotate" type="Sprite2D" parent="." unique_id=1040170356]
+[node name="Checkers" type="Sprite2D" parent="." unique_id=1040170356]
+material = SubResource("ShaderMaterial_gedy8")
+rotation = 0.00017340037
+texture = ExtResource("2_8hhxv")
+
+[node name="Bricks2" type="Sprite2D" parent="." unique_id=732776888]
+material = SubResource("ShaderMaterial_8c7tm")
+position = Vector2(344.00003, -528)
+rotation = 0.00017340037
+texture = ExtResource("2_8hhxv")
+
+[node name="SquareFract" type="Sprite2D" parent="." unique_id=819804889]
+material = SubResource("ShaderMaterial_ahvsh")
+position = Vector2(643, -293)
+rotation = 0.00017340037
+texture = ExtResource("2_8hhxv")
+
+[node name="CircleFract" type="Sprite2D" parent="." unique_id=1384571686]
+material = SubResource("ShaderMaterial_7arjl")
+position = Vector2(345, -294)
+rotation = 0.00017340037
+texture = ExtResource("2_8hhxv")
+
+[node name="CrossScale" type="Sprite2D" parent="." unique_id=296534101]
+material = SubResource("ShaderMaterial_w0t24")
+position = Vector2(-1149, -319)
+rotation = 0.00017340037
+texture = ExtResource("2_8hhxv")
+
+[node name="CrossRotate" type="Sprite2D" parent="." unique_id=1458629231]
 material = SubResource("ShaderMaterial_hlidw")
+position = Vector2(-885, -319)
 rotation = 0.00017340037
 texture = ExtResource("2_8hhxv")
 
