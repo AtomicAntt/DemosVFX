@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://c23npfxwx3mbo" path="res://icon.svg" id="2_8hhxv"]
 [ext_resource type="Shader" uid="uid://cfgrse3kqh4e" path="res://Shaders/2D/half_step.gdshader" id="3_1hbw6"]
 [ext_resource type="Shader" uid="uid://c6ulv0t3ynd3t" path="res://Shaders/2D/bricks.gdshader" id="3_7arjl"]
+[ext_resource type="Shader" uid="uid://cdvoccw7ou1oe" path="res://Shaders/2D/random.gdshader" id="3_8c7tm"]
 [ext_resource type="Shader" uid="uid://c66e6yeutqu4x" path="res://Shaders/2D/simple_gradient.gdshader" id="3_8hhxv"]
 [ext_resource type="Shader" uid="uid://bfphxwem63a4p" path="res://Shaders/2D/color_mix_gradient.gdshader" id="3_13uql"]
 [ext_resource type="Shader" uid="uid://bf1j2c8esit48" path="res://Shaders/2D/checkers.gdshader" id="3_ahvsh"]
@@ -24,10 +25,52 @@ shader = ExtResource("1_4l5f2")
 shader_parameter/fade = 0.45000000670554
 shader_parameter/blur = 0.01999999955296
 
+[sub_resource type="Shader" id="Shader_8c7tm"]
+code = "shader_type canvas_item;
+
+uniform float radius : hint_range(0.0, 0.5) = 0.2;
+uniform vec2 pos1 = vec2(-0.2, 0.0);
+uniform vec2 pos2 = vec2(0.2, 0.0);
+uniform float speed : hint_range(0.0, 20.0) = 1.0;
+
+float random (vec2 uv) {
+	return fract(sin(dot(uv.xy, vec2(12.9898, 78.232))) * 43758.543123);
+}
+
+float random_circle(vec2 uv, vec2 pos, float seed) {
+	uv -= pos;
+	float dist = length(uv - vec2(0.5));
+	float value = (1.0 - step(radius, dist));// * random(uv);
+	if (value == 1.0){
+		value -= random(uv) + 1.0 - random(uv * seed);
+	}
+	return value;
+}
+
+void fragment() {
+	float seed = 1.0 + (TIME * speed);
+	float value = random(UV);
+	vec2 transform = mix(pos1, pos2, (sin(TIME * speed)+1.0)/2.0);
+	value += random_circle(UV, transform, seed);
+	COLOR.rgb = vec3(value);
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jq4el"]
+shader = SubResource("Shader_8c7tm")
+shader_parameter/radius = 0.2
+shader_parameter/pos1 = Vector2(-0.2, 0)
+shader_parameter/pos2 = Vector2(-0.2, 0)
+shader_parameter/speed = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kwd53"]
+shader = ExtResource("3_8c7tm")
+shader_parameter/fade_progress = 0.0
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gedy8"]
 shader = ExtResource("3_ahvsh")
 shader_parameter/grid_size = 5.4630002594925
-shader_parameter/pan_direction = Vector2(1, 1)
+shader_parameter/pan_direction = Vector2(-1, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8c7tm"]
 shader = ExtResource("3_7arjl")
@@ -41,7 +84,9 @@ shader_parameter/grid_size = 3.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7arjl"]
 shader = ExtResource("3_hlidw")
-shader_parameter/circle_radius = 0.254000012065
+shader_parameter/circle_radius = 0.2
+shader_parameter/blur = 0.01
+shader_parameter/tiles = 4.00000019
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_w0t24"]
 shader = ExtResource("3_twkok")
@@ -107,8 +152,20 @@ material = SubResource("ShaderMaterial_jmyjl")
 position = Vector2(-321, 0)
 texture = ExtResource("2_8hhxv")
 
-[node name="Checkers" type="Sprite2D" parent="." unique_id=1040170356]
+[node name="RandomMove" type="Sprite2D" parent="." unique_id=1040170356]
+material = SubResource("ShaderMaterial_jq4el")
+rotation = 0.00017340037
+texture = ExtResource("2_8hhxv")
+
+[node name="RandomDissolve" type="Sprite2D" parent="." unique_id=1394425292]
+material = SubResource("ShaderMaterial_kwd53")
+position = Vector2(-297, 308)
+rotation = 0.00017340037
+texture = ExtResource("2_8hhxv")
+
+[node name="Checkers2" type="Sprite2D" parent="." unique_id=83125994]
 material = SubResource("ShaderMaterial_gedy8")
+position = Vector2(915.00006, -291)
 rotation = 0.00017340037
 texture = ExtResource("2_8hhxv")
 
