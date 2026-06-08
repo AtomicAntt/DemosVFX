@@ -14,7 +14,7 @@ float random_circle(vec2 uv, vec2 pos, float seed) {
 	float dist = length(uv - vec2(0.5));
 	float value = (1.0 - step(radius, dist));// * random(uv);
 	if (value == 1.0){
-		value -= random(uv) + 1.0 - random(uv * TIME);
+		value -= random(uv + pos) + 1.0 - random(uv * seed);
 	}
 	return value;
 }
@@ -28,7 +28,9 @@ float circle(vec2 uv, vec2 pos) {
 
 void fragment() {
 	float seed = 1.0 + (TIME * speed);
+	vec2 transform = mix(pos1, pos2, (sin(TIME * speed) + 1.0)/2.0);
+	//transform = vec2(0.0);
 	float value = random(UV);
-	value += random_circle(UV, vec2(0.0), seed);
+	value += random_circle(UV, transform, seed);
 	COLOR.rgb = vec3(value);
 }
