@@ -20,9 +20,9 @@
 [ext_resource type="Shader" uid="uid://ba1eth11nfvm5" path="res://Shaders/2D/cross_scale.gdshader" id="3_twkok"]
 [ext_resource type="Shader" uid="uid://clmdb1j2gip3" path="res://Shaders/2D/square_fract.gdshader" id="3_w0t24"]
 [ext_resource type="Shader" uid="uid://1xrp0kb0gs1k" path="res://Shaders/2D/rectangle.gdshader" id="3_yhyqj"]
-[ext_resource type="Shader" uid="uid://d6pui4ec7anl" path="res://random_grid.gdshader" id="5_bnpno"]
+[ext_resource type="Shader" uid="uid://d6pui4ec7anl" path="res://Shaders/2D/random_grid.gdshader" id="5_bnpno"]
 [ext_resource type="Shader" uid="uid://clpb61wd3vt3d" path="res://Shaders/2D/diagonal_lines.gdshader" id="19_jq4el"]
-[ext_resource type="Shader" uid="uid://dn8mlhp3rnhtl" path="res://wavy.gdshader" id="20_ingrd"]
+[ext_resource type="Shader" uid="uid://dn8mlhp3rnhtl" path="res://Shaders/2D/wavy.gdshader" id="20_ingrd"]
 [ext_resource type="Shader" uid="uid://vpt68fa1kwk7" path="res://Shaders/2D/circles_fade_in.gdshader" id="21_kwd53"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_jmyjl"]
