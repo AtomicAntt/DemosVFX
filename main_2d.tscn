@@ -20,7 +20,9 @@
 [ext_resource type="Shader" uid="uid://ba1eth11nfvm5" path="res://Shaders/2D/cross_scale.gdshader" id="3_twkok"]
 [ext_resource type="Shader" uid="uid://clmdb1j2gip3" path="res://Shaders/2D/square_fract.gdshader" id="3_w0t24"]
 [ext_resource type="Shader" uid="uid://1xrp0kb0gs1k" path="res://Shaders/2D/rectangle.gdshader" id="3_yhyqj"]
+[ext_resource type="Shader" uid="uid://d6pui4ec7anl" path="res://random_grid.gdshader" id="5_bnpno"]
 [ext_resource type="Shader" uid="uid://clpb61wd3vt3d" path="res://Shaders/2D/diagonal_lines.gdshader" id="19_jq4el"]
+[ext_resource type="Shader" uid="uid://dn8mlhp3rnhtl" path="res://wavy.gdshader" id="20_ingrd"]
 [ext_resource type="Shader" uid="uid://vpt68fa1kwk7" path="res://Shaders/2D/circles_fade_in.gdshader" id="21_kwd53"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_jmyjl"]
@@ -38,6 +40,9 @@ shader_parameter/speed = 1.0
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kwd53"]
 shader = ExtResource("3_8c7tm")
 shader_parameter/fade_progress = 0.50000002375
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_25d1e"]
+shader = ExtResource("5_bnpno")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gedy8"]
 shader = ExtResource("3_ahvsh")
@@ -110,6 +115,11 @@ shader_parameter/blur = 0.20000000298023
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ofc6w"]
 shader = ExtResource("3_1hbw6")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qw8p8"]
+shader = ExtResource("20_ingrd")
+shader_parameter/y_threshold = 0.3
+shader_parameter/wavy_intensity = 50.0
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ingrd"]
 shader = ExtResource("19_jq4el")
 shader_parameter/line_width = 0.2
@@ -148,6 +158,12 @@ texture = ExtResource("2_8hhxv")
 [node name="RandomDissolve" type="Sprite2D" parent="." unique_id=1394425292]
 material = SubResource("ShaderMaterial_kwd53")
 position = Vector2(-297, 308)
+rotation = 0.00017340037
+texture = ExtResource("2_8hhxv")
+
+[node name="RandomGrid" type="Sprite2D" parent="." unique_id=926899111]
+material = SubResource("ShaderMaterial_25d1e")
+position = Vector2(645, -548)
 rotation = 0.00017340037
 texture = ExtResource("2_8hhxv")
 
@@ -235,8 +251,14 @@ position = Vector2(0, 301.00003)
 rotation = 0.00017340037
 texture = ExtResource("2_8hhxv")
 
+[node name="Wavy" type="Sprite2D" parent="." unique_id=1860227550]
+material = SubResource("ShaderMaterial_qw8p8")
+rotation = 0.00017340037
+texture = ExtResource("2_8hhxv")
+
 [node name="DiagonalLines" type="Sprite2D" parent="." unique_id=1916494671]
 material = SubResource("ShaderMaterial_ingrd")
+position = Vector2(-669, 300)
 texture = ExtResource("2_8hhxv")
 
 [node name="ExponentialGradient" type="Sprite2D" parent="." unique_id=207243813]
