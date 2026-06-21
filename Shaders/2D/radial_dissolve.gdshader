@@ -1,7 +1,7 @@
 shader_type canvas_item;
 
 //uniform float progress : hint_range(0.0, 1.0) = 1.0;
-uniform float blur : hint_range(0.0, 0.2) = 0.1;
+uniform float blur : hint_range(0.0, 0.8) = 0.4;
 uniform sampler2D noise;
 
 
