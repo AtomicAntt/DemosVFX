@@ -25,6 +25,7 @@
 [ext_resource type="Shader" uid="uid://cq5kqvb0188a4" path="res://Shaders/2D/radial_fade.gdshader" id="20_25d1e"]
 [ext_resource type="Shader" uid="uid://dn8mlhp3rnhtl" path="res://Shaders/2D/wavy.gdshader" id="20_ingrd"]
 [ext_resource type="Shader" uid="uid://b7xmfsuket0c7" path="res://Shaders/2D/dissolve.gdshader" id="20_qw8p8"]
+[ext_resource type="Shader" uid="uid://chk314wuwpaq3" path="res://Shaders/2D/pixelation.gdshader" id="20_wa2qt"]
 [ext_resource type="Shader" uid="uid://bwfwmhkjfnwij" path="res://Shaders/2D/radial_dissolve.gdshader" id="21_5k4x8"]
 [ext_resource type="Shader" uid="uid://vpt68fa1kwk7" path="res://Shaders/2D/circles_fade_in.gdshader" id="21_kwd53"]
 [ext_resource type="Texture2D" uid="uid://cgym8otmca7kt" path="res://Textures/Noise/perlin-noise-small.png" id="22_p5bk5"]
@@ -117,6 +118,11 @@ shader_parameter/blur = 0.20000000298023
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ofc6w"]
 shader = ExtResource("3_1hbw6")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jxms1"]
+shader = ExtResource("20_wa2qt")
+shader_parameter/tex = ExtResource("2_8hhxv")
+shader_parameter/grid_size = 2.0
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_qw8p8"]
 
@@ -281,6 +287,11 @@ position = Vector2(0, 301.00003)
 rotation = 0.00017340037
 texture = ExtResource("2_8hhxv")
 
+[node name="HalfStep5" type="Sprite2D" parent="." unique_id=1763824674]
+material = SubResource("ShaderMaterial_jxms1")
+rotation = 0.00017340037
+texture = ExtResource("2_8hhxv")
+
 [node name="HalfStep2" type="Sprite2D" parent="." unique_id=1038100921]
 material = SubResource("ShaderMaterial_q35h1")
 position = Vector2(-881, -567)
@@ -295,7 +306,7 @@ texture = ExtResource("2_8hhxv")
 
 [node name="HalfStep4" type="Sprite2D" parent="." unique_id=917038457]
 material = SubResource("ShaderMaterial_wa2qt")
-position = Vector2(-0.00012207031, -6.1035156e-05)
+position = Vector2(710, 270)
 rotation = 0.00017340037
 texture = ExtResource("2_8hhxv")
 
@@ -332,4 +343,8 @@ texture = ExtResource("2_8hhxv")
 material = SubResource("ShaderMaterial_bnpno")
 position = Vector2(-296, -563)
 rotation = 0.00017340037
+texture = ExtResource("2_8hhxv")
+
+[node name="Icon2" type="Sprite2D" parent="." unique_id=1187462786]
+position = Vector2(0, 140)
 texture = ExtResource("2_8hhxv")
