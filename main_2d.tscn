@@ -28,7 +28,7 @@
 [ext_resource type="Shader" uid="uid://chk314wuwpaq3" path="res://Shaders/2D/pixelation.gdshader" id="20_wa2qt"]
 [ext_resource type="Shader" uid="uid://bwfwmhkjfnwij" path="res://Shaders/2D/radial_dissolve.gdshader" id="21_5k4x8"]
 [ext_resource type="Shader" uid="uid://vpt68fa1kwk7" path="res://Shaders/2D/circles_fade_in.gdshader" id="21_kwd53"]
-[ext_resource type="Texture2D" uid="uid://cgym8otmca7kt" path="res://Textures/Noise/perlin-noise-small.png" id="22_p5bk5"]
+[ext_resource type="Shader" uid="uid://cxl83p481v3x1" path="res://Shaders/2D/blend_mul.gdshader" id="22_d5kdy"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_jmyjl"]
 shader = ExtResource("1_4l5f2")
@@ -122,7 +122,25 @@ shader = ExtResource("3_1hbw6")
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_jxms1"]
 shader = ExtResource("20_wa2qt")
 shader_parameter/tex = ExtResource("2_8hhxv")
-shader_parameter/grid_size = 2.0
+shader_parameter/grid_size = 16.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_e2uuy"]
+shader = ExtResource("22_d5kdy")
+
+[sub_resource type="VisualShaderNodeColorConstant" id="VisualShaderNodeColorConstant_d5kdy"]
+output_port_for_preview = 6
+expanded_output_ports = [0]
+constant = Color(0.9490196, 0, 0.9490196, 1)
+
+[sub_resource type="VisualShader" id="VisualShader_e2uuy"]
+mode = 1
+flags/light_only = false
+nodes/fragment/2/node = SubResource("VisualShaderNodeColorConstant_d5kdy")
+nodes/fragment/2/position = Vector2(120, 40)
+nodes/fragment/connections = PackedInt32Array(2, 0, 0, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_d5kdy"]
+shader = SubResource("VisualShader_e2uuy")
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_qw8p8"]
 
@@ -140,13 +158,8 @@ noise = SubResource("FastNoiseLite_p5bk5")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_p5bk5"]
 shader = ExtResource("21_5k4x8")
-shader_parameter/blur = 0.80000001192093
+shader_parameter/blur = 0.400000019
 shader_parameter/noise = SubResource("NoiseTexture2D_p5bk5")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_wa2qt"]
-shader = ExtResource("21_5k4x8")
-shader_parameter/blur = 0.80000001192093
-shader_parameter/noise = ExtResource("22_p5bk5")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5k4x8"]
 shader = ExtResource("20_25d1e")
@@ -289,6 +302,18 @@ texture = ExtResource("2_8hhxv")
 
 [node name="HalfStep5" type="Sprite2D" parent="." unique_id=1763824674]
 material = SubResource("ShaderMaterial_jxms1")
+position = Vector2(-297, -802)
+rotation = 0.00017340037
+texture = ExtResource("2_8hhxv")
+
+[node name="HalfStep9" type="Sprite2D" parent="." unique_id=406407735]
+material = SubResource("ShaderMaterial_e2uuy")
+rotation = 0.00017340037
+texture = ExtResource("2_8hhxv")
+
+[node name="HalfStep6" type="Sprite2D" parent="." unique_id=988720712]
+material = SubResource("ShaderMaterial_d5kdy")
+position = Vector2(0, -825)
 rotation = 0.00017340037
 texture = ExtResource("2_8hhxv")
 
@@ -301,12 +326,6 @@ texture = ExtResource("2_8hhxv")
 [node name="HalfStep3" type="Sprite2D" parent="." unique_id=718640708]
 material = SubResource("ShaderMaterial_p5bk5")
 position = Vector2(-1147.0001, -563)
-rotation = 0.00017340037
-texture = ExtResource("2_8hhxv")
-
-[node name="HalfStep4" type="Sprite2D" parent="." unique_id=917038457]
-material = SubResource("ShaderMaterial_wa2qt")
-position = Vector2(710, 270)
 rotation = 0.00017340037
 texture = ExtResource("2_8hhxv")
 
@@ -343,8 +362,4 @@ texture = ExtResource("2_8hhxv")
 material = SubResource("ShaderMaterial_bnpno")
 position = Vector2(-296, -563)
 rotation = 0.00017340037
-texture = ExtResource("2_8hhxv")
-
-[node name="Icon2" type="Sprite2D" parent="." unique_id=1187462786]
-position = Vector2(0, 140)
 texture = ExtResource("2_8hhxv")

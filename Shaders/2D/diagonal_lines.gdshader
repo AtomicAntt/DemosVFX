@@ -22,6 +22,7 @@ float line(vec2 uv, float scale){
 }
 
 void fragment() {
+	
 	vec2 transform = rotate_2d(UV, vec2(0.5), (45.0/180.0) * PI);
 	transform += vec2(-1.0, 1.0) * TIME * speed;
 	transform = fract(vec2(transform.x * line_count, UV.y));
