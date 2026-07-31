@@ -29,6 +29,7 @@
 [ext_resource type="Shader" uid="uid://bwfwmhkjfnwij" path="res://Shaders/2D/radial_dissolve.gdshader" id="21_5k4x8"]
 [ext_resource type="Shader" uid="uid://vpt68fa1kwk7" path="res://Shaders/2D/circles_fade_in.gdshader" id="21_kwd53"]
 [ext_resource type="Shader" uid="uid://cxl83p481v3x1" path="res://Shaders/2D/blend_mul.gdshader" id="22_d5kdy"]
+[ext_resource type="Shader" uid="uid://b6006o0wgm13d" path="res://noise.gdshader" id="28_d5kdy"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_jmyjl"]
 shader = ExtResource("1_4l5f2")
@@ -179,6 +180,9 @@ shader_parameter/speed = 0.3
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_t7h21"]
 shader = ExtResource("3_jmyjl")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_h45xw"]
+shader = ExtResource("28_d5kdy")
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1hbw6"]
 shader = ExtResource("3_8hhxv")
 
@@ -308,6 +312,7 @@ texture = ExtResource("2_8hhxv")
 
 [node name="HalfStep9" type="Sprite2D" parent="." unique_id=406407735]
 material = SubResource("ShaderMaterial_e2uuy")
+position = Vector2(918, -546)
 rotation = 0.00017340037
 texture = ExtResource("2_8hhxv")
 
@@ -349,6 +354,11 @@ texture = ExtResource("2_8hhxv")
 [node name="ExponentialGradient" type="Sprite2D" parent="." unique_id=207243813]
 material = SubResource("ShaderMaterial_t7h21")
 position = Vector2(367, 0)
+rotation = 0.00017340037
+texture = ExtResource("2_8hhxv")
+
+[node name="Noise" type="Sprite2D" parent="." unique_id=1523599462]
+material = SubResource("ShaderMaterial_h45xw")
 rotation = 0.00017340037
 texture = ExtResource("2_8hhxv")
 
