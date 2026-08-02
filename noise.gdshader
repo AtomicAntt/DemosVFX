@@ -1,7 +1,7 @@
 shader_type canvas_item; 
 
 float random(vec2 uv) {
-	return fract(sin(dot(uv.xy, vec2(12.998, 78.232))) * 43758.5454221);
+	return fract(sin(dot(uv.xy, vec2(12.99338, 78.235245))) * 43758.5454221);
 }
 
 float noise(vec2 uv) {
