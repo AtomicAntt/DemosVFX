@@ -187,6 +187,7 @@ shader = ExtResource("28_e2uuy")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_el73s"]
 shader = ExtResource("29_el73s")
+shader_parameter/tiles = 3.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_h45xw"]
 shader = ExtResource("28_d5kdy")
@@ -373,7 +374,7 @@ texture = ExtResource("2_8hhxv")
 
 [node name="CellularNoise2" type="Sprite2D" parent="." unique_id=1639247754]
 material = SubResource("ShaderMaterial_el73s")
-position = Vector2(0, -6.1035156e-05)
+position = Vector2(-606, -795)
 rotation = 0.00017340037
 texture = ExtResource("2_8hhxv")
 

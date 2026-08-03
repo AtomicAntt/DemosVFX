@@ -1,0 +1,926 @@
+[gd_scene format=3 uid="uid://bh2txmfafx6bl"]
+
+[ext_resource type="Shader" uid="uid://ce1hvjen2ogbk" path="res://Shaders/3D/worldspace_effect.gdshader" id="1_3m82e"]
+[ext_resource type="PackedScene" uid="uid://cjvq3rsv6e8ik" path="res://Assets/Free 3D Modular Game Assets For Prototyping/Sample 1/Sample 1.fbx" id="1_8sdlt"]
+[ext_resource type="Script" uid="uid://bywb8a36gf8qs" path="res://world_3d_test.gd" id="1_gtmbq"]
+[ext_resource type="PackedScene" uid="uid://cl0eiisbse5xr" path="res://Assets/Free 3D Modular Game Assets For Prototyping/Sample 2/Sample 2.fbx" id="2_3m82e"]
+[ext_resource type="PackedScene" uid="uid://b875hnvs2877j" path="res://Assets/Free 3D Modular Game Assets For Prototyping/Sample 3/Sample 3.fbx" id="3_gtmbq"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_powkq"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_h0c7n"]
+sky_material = SubResource("ProceduralSkyMaterial_powkq")
+
+[sub_resource type="Environment" id="Environment_ugojs"]
+background_mode = 2
+sky = SubResource("Sky_h0c7n")
+tonemap_mode = 2
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8sdlt"]
+render_priority = 0
+shader = ExtResource("1_3m82e")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_h45xw"]
+size = Vector2(100, 100)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3m82e"]
+render_priority = 0
+shader = ExtResource("1_3m82e")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gtmbq"]
+render_priority = 0
+shader = ExtResource("1_3m82e")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_powkq"]
+render_priority = 0
+shader = ExtResource("1_3m82e")
+
+[node name="World3dTest" type="Node3D" unique_id=1246672523]
+script = ExtResource("1_gtmbq")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1755332975]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=2025358783]
+environment = SubResource("Environment_ugojs")
+
+[node name="Floor" type="MeshInstance3D" parent="." unique_id=1322648402]
+material_override = SubResource("ShaderMaterial_8sdlt")
+mesh = SubResource("PlaneMesh_h45xw")
+
+[node name="Sample 1" parent="." unique_id=823668207 instance=ExtResource("1_8sdlt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.495148, 0, -13.397966)
+
+[node name="Wall door_003" parent="Sample 1" index="0" unique_id=1171548078]
+material_override = SubResource("ShaderMaterial_3m82e")
+
+[node name="Wall window_002" parent="Sample 1" index="1" unique_id=772884000]
+material_override = SubResource("ShaderMaterial_3m82e")
+
+[node name="Wall window_003" parent="Sample 1" index="2" unique_id=517006978]
+material_override = SubResource("ShaderMaterial_3m82e")
+
+[node name="Wall door_004" parent="Sample 1" index="3" unique_id=882176080]
+material_override = SubResource("ShaderMaterial_3m82e")
+
+[node name="Wall door_005" parent="Sample 1" index="4" unique_id=10896719]
+material_override = SubResource("ShaderMaterial_3m82e")
+
+[node name="Wall_104" parent="Sample 1" index="5" unique_id=541174927]
+material_override = SubResource("ShaderMaterial_3m82e")
+
+[node name="Cube_020" parent="Sample 1" index="6" unique_id=834709246]
+material_override = SubResource("ShaderMaterial_3m82e")
+
+[node name="Cube_022" parent="Sample 1" index="7" unique_id=2010735281]
+material_override = SubResource("ShaderMaterial_3m82e")
+
+[node name="Wall door_007" parent="Sample 1" index="8" unique_id=9594727]
+material_override = SubResource("ShaderMaterial_3m82e")
+
+[node name="Pillar_012" parent="Sample 1" index="9" unique_id=934382053]
+material_override = SubResource("ShaderMaterial_3m82e")
+
+[node name="Pillar_013" parent="Sample 1" index="10" unique_id=1264325826]
+material_override = SubResource("ShaderMaterial_3m82e")
+
+[node name="Pillar_014" parent="Sample 1" index="11" unique_id=818517862]
+material_override = SubResource("ShaderMaterial_3m82e")
+
+[node name="Pillar_019" parent="Sample 1" index="12" unique_id=944033831]
+material_override = SubResource("ShaderMaterial_3m82e")
+
+[node name="Pillar_011" parent="Sample 1" index="13" unique_id=1091616215]
+material_override = SubResource("ShaderMaterial_3m82e")
+
+[node name="Pillar_016" parent="Sample 1" index="14" unique_id=1891094800]
+material_override = SubResource("ShaderMaterial_3m82e")
+
+[node name="Pillar_015" parent="Sample 1" index="15" unique_id=1650711999]
+material_override = SubResource("ShaderMaterial_3m82e")
+
+[node name="Pillar_017" parent="Sample 1" index="16" unique_id=908808044]
+material_override = SubResource("ShaderMaterial_3m82e")
+
+[node name="Pillar_020" parent="Sample 1" index="17" unique_id=1700315821]
+material_override = SubResource("ShaderMaterial_3m82e")
+
+[node name="Pillar_021" parent="Sample 1" index="18" unique_id=446228487]
+material_override = SubResource("ShaderMaterial_3m82e")
+
+[node name="Pillar_022" parent="Sample 1" index="19" unique_id=906739588]
+material_override = SubResource("ShaderMaterial_3m82e")
+
+[node name="Pillar_023" parent="Sample 1" index="20" unique_id=1526665811]
+material_override = SubResource("ShaderMaterial_3m82e")
+
+[node name="Pillar_024" parent="Sample 1" index="21" unique_id=1414137341]
+material_override = SubResource("ShaderMaterial_3m82e")
+
+[node name="Pillar_025" parent="Sample 1" index="22" unique_id=754448379]
+material_override = SubResource("ShaderMaterial_3m82e")
+
+[node name="Pillar_027" parent="Sample 1" index="23" unique_id=2112159977]
+material_override = SubResource("ShaderMaterial_3m82e")
+
+[node name="Pillar_028" parent="Sample 1" index="24" unique_id=1519883626]
+material_override = SubResource("ShaderMaterial_3m82e")
+
+[node name="Pillar_029" parent="Sample 1" index="25" unique_id=1481561269]
+material_override = SubResource("ShaderMaterial_3m82e")
+
+[node name="Pillar_018" parent="Sample 1" index="26" unique_id=811419680]
+material_override = SubResource("ShaderMaterial_3m82e")
+
+[node name="Cube_046" parent="Sample 1" index="27" unique_id=1754380952]
+material_override = SubResource("ShaderMaterial_3m82e")
+
+[node name="Pillar_030" parent="Sample 1" index="28" unique_id=1783986824]
+material_override = SubResource("ShaderMaterial_3m82e")
+
+[node name="Cube_047" parent="Sample 1" index="29" unique_id=858525962]
+material_override = SubResource("ShaderMaterial_3m82e")
+
+[node name="Ladder_006" parent="Sample 1" index="30" unique_id=2034289478]
+material_override = SubResource("ShaderMaterial_3m82e")
+
+[node name="Ladder_007" parent="Sample 1" index="31" unique_id=884010655]
+material_override = SubResource("ShaderMaterial_3m82e")
+
+[node name="Ladder_008" parent="Sample 1" index="32" unique_id=1730548421]
+material_override = SubResource("ShaderMaterial_3m82e")
+
+[node name="Pillar_026" parent="Sample 1" index="33" unique_id=1243465515]
+material_override = SubResource("ShaderMaterial_3m82e")
+
+[node name="Pillar_031" parent="Sample 1" index="34" unique_id=726108099]
+material_override = SubResource("ShaderMaterial_3m82e")
+
+[node name="Pillar_032" parent="Sample 1" index="35" unique_id=1946343646]
+material_override = SubResource("ShaderMaterial_3m82e")
+
+[node name="Pillar_033" parent="Sample 1" index="36" unique_id=1440139960]
+material_override = SubResource("ShaderMaterial_3m82e")
+
+[node name="Wall corner_017" parent="Sample 1" index="37" unique_id=594696971]
+material_override = SubResource("ShaderMaterial_3m82e")
+
+[node name="Wall_103" parent="Sample 1" index="38" unique_id=1195448124]
+material_override = SubResource("ShaderMaterial_3m82e")
+
+[node name="Wall_006" parent="Sample 1" index="39" unique_id=56851605]
+material_override = SubResource("ShaderMaterial_3m82e")
+
+[node name="Wall_008" parent="Sample 1" index="40" unique_id=501736952]
+material_override = SubResource("ShaderMaterial_3m82e")
+
+[node name="Wall_022" parent="Sample 1" index="41" unique_id=1096322940]
+material_override = SubResource("ShaderMaterial_3m82e")
+
+[node name="Wall_023" parent="Sample 1" index="42" unique_id=731554190]
+material_override = SubResource("ShaderMaterial_3m82e")
+
+[node name="Wall_027" parent="Sample 1" index="43" unique_id=1009419081]
+material_override = SubResource("ShaderMaterial_3m82e")
+
+[node name="Wall_054" parent="Sample 1" index="44" unique_id=1361426499]
+material_override = SubResource("ShaderMaterial_3m82e")
+
+[node name="Wall_002" parent="Sample 1" index="45" unique_id=1277258700]
+material_override = SubResource("ShaderMaterial_3m82e")
+
+[node name="Wall_005" parent="Sample 1" index="46" unique_id=36742287]
+material_override = SubResource("ShaderMaterial_3m82e")
+
+[node name="Wall_010" parent="Sample 1" index="47" unique_id=1118202161]
+material_override = SubResource("ShaderMaterial_3m82e")
+
+[node name="Wall_012" parent="Sample 1" index="48" unique_id=219161701]
+material_override = SubResource("ShaderMaterial_3m82e")
+
+[node name="Wall_013" parent="Sample 1" index="49" unique_id=1594922917]
+material_override = SubResource("ShaderMaterial_3m82e")
+
+[node name="Wall_018" parent="Sample 1" index="50" unique_id=1931735456]
+material_override = SubResource("ShaderMaterial_3m82e")
+
+[node name="Wall_019" parent="Sample 1" index="51" unique_id=1333322666]
+material_override = SubResource("ShaderMaterial_3m82e")
+
+[node name="Wall_020" parent="Sample 1" index="52" unique_id=1926998038]
+material_override = SubResource("ShaderMaterial_3m82e")
+
+[node name="Wall_021" parent="Sample 1" index="53" unique_id=979375866]
+material_override = SubResource("ShaderMaterial_3m82e")
+
+[node name="Wall_024" parent="Sample 1" index="54" unique_id=274634023]
+material_override = SubResource("ShaderMaterial_3m82e")
+
+[node name="Wall_025" parent="Sample 1" index="55" unique_id=885909572]
+material_override = SubResource("ShaderMaterial_3m82e")
+
+[node name="Wall_026" parent="Sample 1" index="56" unique_id=1257103648]
+material_override = SubResource("ShaderMaterial_3m82e")
+
+[node name="Wall_028" parent="Sample 1" index="57" unique_id=1647300018]
+material_override = SubResource("ShaderMaterial_3m82e")
+
+[node name="Wall_029" parent="Sample 1" index="58" unique_id=2080884329]
+material_override = SubResource("ShaderMaterial_3m82e")
+
+[node name="Wall_030" parent="Sample 1" index="59" unique_id=259531187]
+material_override = SubResource("ShaderMaterial_3m82e")
+
+[node name="Wall_031" parent="Sample 1" index="60" unique_id=413093040]
+material_override = SubResource("ShaderMaterial_3m82e")
+
+[node name="Wall_032" parent="Sample 1" index="61" unique_id=1532676723]
+material_override = SubResource("ShaderMaterial_3m82e")
+
+[node name="Wall_033" parent="Sample 1" index="62" unique_id=247343107]
+material_override = SubResource("ShaderMaterial_3m82e")
+
+[node name="Wall_034" parent="Sample 1" index="63" unique_id=1310471646]
+material_override = SubResource("ShaderMaterial_3m82e")
+
+[node name="Wall_035" parent="Sample 1" index="64" unique_id=490210726]
+material_override = SubResource("ShaderMaterial_3m82e")
+
+[node name="Wall_036" parent="Sample 1" index="65" unique_id=1375679988]
+material_override = SubResource("ShaderMaterial_3m82e")
+
+[node name="Wall_037" parent="Sample 1" index="66" unique_id=1178646935]
+material_override = SubResource("ShaderMaterial_3m82e")
+
+[node name="Wall_039" parent="Sample 1" index="67" unique_id=2017103461]
+material_override = SubResource("ShaderMaterial_3m82e")
+
+[node name="Wall corner_003" parent="Sample 1" index="68" unique_id=79437448]
+material_override = SubResource("ShaderMaterial_3m82e")
+
+[node name="Wall_041" parent="Sample 1" index="69" unique_id=1585622879]
+material_override = SubResource("ShaderMaterial_3m82e")
+
+[node name="Wall_042" parent="Sample 1" index="70" unique_id=1071822505]
+material_override = SubResource("ShaderMaterial_3m82e")
+
+[node name="Wall_043" parent="Sample 1" index="71" unique_id=1783722350]
+material_override = SubResource("ShaderMaterial_3m82e")
+
+[node name="Wall_091" parent="Sample 1" index="72" unique_id=1780157846]
+material_override = SubResource("ShaderMaterial_3m82e")
+
+[node name="Wall_092" parent="Sample 1" index="73" unique_id=788321466]
+material_override = SubResource("ShaderMaterial_3m82e")
+
+[node name="Wall_098" parent="Sample 1" index="74" unique_id=1658343060]
+material_override = SubResource("ShaderMaterial_3m82e")
+
+[node name="Wall_099" parent="Sample 1" index="75" unique_id=176081080]
+material_override = SubResource("ShaderMaterial_3m82e")
+
+[node name="Wall_102" parent="Sample 1" index="76" unique_id=1202405919]
+material_override = SubResource("ShaderMaterial_3m82e")
+
+[node name="Wall_105" parent="Sample 1" index="77" unique_id=1426343806]
+material_override = SubResource("ShaderMaterial_3m82e")
+
+[node name="Wall_106" parent="Sample 1" index="78" unique_id=1529561861]
+material_override = SubResource("ShaderMaterial_3m82e")
+
+[node name="Wall_116" parent="Sample 1" index="79" unique_id=154765145]
+material_override = SubResource("ShaderMaterial_3m82e")
+
+[node name="Wall_119" parent="Sample 1" index="80" unique_id=1837945036]
+material_override = SubResource("ShaderMaterial_3m82e")
+
+[node name="Wall_120" parent="Sample 1" index="81" unique_id=1266376160]
+material_override = SubResource("ShaderMaterial_3m82e")
+
+[node name="Wall_121" parent="Sample 1" index="82" unique_id=1836398378]
+material_override = SubResource("ShaderMaterial_3m82e")
+
+[node name="Wall_122" parent="Sample 1" index="83" unique_id=1384285326]
+material_override = SubResource("ShaderMaterial_3m82e")
+
+[node name="Wall_123" parent="Sample 1" index="84" unique_id=1698610048]
+material_override = SubResource("ShaderMaterial_3m82e")
+
+[node name="Wall_124" parent="Sample 1" index="85" unique_id=2075324111]
+material_override = SubResource("ShaderMaterial_3m82e")
+
+[node name="Wall_127" parent="Sample 1" index="86" unique_id=2023054904]
+material_override = SubResource("ShaderMaterial_3m82e")
+
+[node name="Wall_128" parent="Sample 1" index="87" unique_id=1847093755]
+material_override = SubResource("ShaderMaterial_3m82e")
+
+[node name="Wall corner_005" parent="Sample 1" index="88" unique_id=863003689]
+material_override = SubResource("ShaderMaterial_3m82e")
+
+[node name="Wall_108" parent="Sample 1" index="89" unique_id=464208588]
+material_override = SubResource("ShaderMaterial_3m82e")
+
+[node name="Wall_115" parent="Sample 1" index="90" unique_id=1619536645]
+material_override = SubResource("ShaderMaterial_3m82e")
+
+[node name="Wall_130" parent="Sample 1" index="91" unique_id=1188625488]
+material_override = SubResource("ShaderMaterial_3m82e")
+
+[node name="Wall_131" parent="Sample 1" index="92" unique_id=58153308]
+material_override = SubResource("ShaderMaterial_3m82e")
+
+[node name="Wall_093" parent="Sample 1" index="93" unique_id=531145987]
+material_override = SubResource("ShaderMaterial_3m82e")
+
+[node name="Wall_094" parent="Sample 1" index="94" unique_id=1236675909]
+material_override = SubResource("ShaderMaterial_3m82e")
+
+[node name="Wall_038" parent="Sample 1" index="95" unique_id=2138189897]
+material_override = SubResource("ShaderMaterial_3m82e")
+
+[node name="Wall_100" parent="Sample 1" index="96" unique_id=757675664]
+material_override = SubResource("ShaderMaterial_3m82e")
+
+[node name="Wall_101" parent="Sample 1" index="97" unique_id=1115459586]
+material_override = SubResource("ShaderMaterial_3m82e")
+
+[node name="Wall_109" parent="Sample 1" index="98" unique_id=1596011442]
+material_override = SubResource("ShaderMaterial_3m82e")
+
+[node name="Wall_110" parent="Sample 1" index="99" unique_id=1246203754]
+material_override = SubResource("ShaderMaterial_3m82e")
+
+[node name="Sample 2" parent="." unique_id=1209269031 instance=ExtResource("2_3m82e")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 12, 0, 4)
+
+[node name="Stairs_003" parent="Sample 2" index="0" unique_id=1041618714]
+material_override = SubResource("ShaderMaterial_gtmbq")
+
+[node name="Stairs corner_002" parent="Sample 2" index="1" unique_id=383107968]
+material_override = SubResource("ShaderMaterial_gtmbq")
+
+[node name="Stairs_005" parent="Sample 2" index="2" unique_id=1859074388]
+material_override = SubResource("ShaderMaterial_gtmbq")
+
+[node name="Stairs corner_003" parent="Sample 2" index="3" unique_id=1801382749]
+material_override = SubResource("ShaderMaterial_gtmbq")
+
+[node name="Stairs_006" parent="Sample 2" index="4" unique_id=33227432]
+material_override = SubResource("ShaderMaterial_gtmbq")
+
+[node name="Stairs_007" parent="Sample 2" index="5" unique_id=258545235]
+material_override = SubResource("ShaderMaterial_gtmbq")
+
+[node name="Stairs_008" parent="Sample 2" index="6" unique_id=1514396321]
+material_override = SubResource("ShaderMaterial_gtmbq")
+
+[node name="Stairs_009" parent="Sample 2" index="7" unique_id=398728940]
+material_override = SubResource("ShaderMaterial_gtmbq")
+
+[node name="Ladder_002" parent="Sample 2" index="8" unique_id=1320438243]
+material_override = SubResource("ShaderMaterial_gtmbq")
+
+[node name="Ladder_003" parent="Sample 2" index="9" unique_id=400185186]
+material_override = SubResource("ShaderMaterial_gtmbq")
+
+[node name="Ladder_004" parent="Sample 2" index="10" unique_id=898085365]
+material_override = SubResource("ShaderMaterial_gtmbq")
+
+[node name="Wall_016" parent="Sample 2" index="11" unique_id=274435543]
+material_override = SubResource("ShaderMaterial_gtmbq")
+
+[node name="Wall_017" parent="Sample 2" index="12" unique_id=2099006788]
+material_override = SubResource("ShaderMaterial_gtmbq")
+
+[node name="Box_001" parent="Sample 2" index="13" unique_id=45658971]
+material_override = SubResource("ShaderMaterial_gtmbq")
+
+[node name="Box_002" parent="Sample 2" index="14" unique_id=1172514318]
+material_override = SubResource("ShaderMaterial_gtmbq")
+
+[node name="Box_003" parent="Sample 2" index="15" unique_id=1874563489]
+material_override = SubResource("ShaderMaterial_gtmbq")
+
+[node name="Coin_001" parent="Sample 2" index="16" unique_id=1738232895]
+material_override = SubResource("ShaderMaterial_gtmbq")
+
+[node name="Coin_002" parent="Sample 2" index="17" unique_id=1458603694]
+material_override = SubResource("ShaderMaterial_gtmbq")
+
+[node name="Coin_003" parent="Sample 2" index="18" unique_id=1310521612]
+material_override = SubResource("ShaderMaterial_gtmbq")
+
+[node name="Coin_004" parent="Sample 2" index="19" unique_id=1554613012]
+material_override = SubResource("ShaderMaterial_gtmbq")
+
+[node name="Coin_005" parent="Sample 2" index="20" unique_id=422086135]
+material_override = SubResource("ShaderMaterial_gtmbq")
+
+[node name="Coin_006" parent="Sample 2" index="21" unique_id=1921854848]
+material_override = SubResource("ShaderMaterial_gtmbq")
+
+[node name="Coin_007" parent="Sample 2" index="22" unique_id=1601792468]
+material_override = SubResource("ShaderMaterial_gtmbq")
+
+[node name="Coin_008" parent="Sample 2" index="23" unique_id=1020598124]
+material_override = SubResource("ShaderMaterial_gtmbq")
+
+[node name="Coin_009" parent="Sample 2" index="24" unique_id=737340390]
+material_override = SubResource("ShaderMaterial_gtmbq")
+
+[node name="Wall_059" parent="Sample 2" index="25" unique_id=1547662695]
+material_override = SubResource("ShaderMaterial_gtmbq")
+
+[node name="Cube_012" parent="Sample 2" index="26" unique_id=2103757994]
+material_override = SubResource("ShaderMaterial_gtmbq")
+
+[node name="Cube_013" parent="Sample 2" index="27" unique_id=208574724]
+material_override = SubResource("ShaderMaterial_gtmbq")
+
+[node name="Wall_060" parent="Sample 2" index="28" unique_id=1904790464]
+material_override = SubResource("ShaderMaterial_gtmbq")
+
+[node name="Wall_061" parent="Sample 2" index="29" unique_id=169537955]
+material_override = SubResource("ShaderMaterial_gtmbq")
+
+[node name="Wall_062" parent="Sample 2" index="30" unique_id=1961103147]
+material_override = SubResource("ShaderMaterial_gtmbq")
+
+[node name="Wall_063" parent="Sample 2" index="31" unique_id=689485213]
+material_override = SubResource("ShaderMaterial_gtmbq")
+
+[node name="Wall_064" parent="Sample 2" index="32" unique_id=1107579303]
+material_override = SubResource("ShaderMaterial_gtmbq")
+
+[node name="Wall door_006" parent="Sample 2" index="33" unique_id=748411303]
+material_override = SubResource("ShaderMaterial_gtmbq")
+
+[node name="Box_004" parent="Sample 2" index="34" unique_id=1516691708]
+material_override = SubResource("ShaderMaterial_gtmbq")
+
+[node name="Key_001" parent="Sample 2" index="35" unique_id=2030465498]
+material_override = SubResource("ShaderMaterial_gtmbq")
+
+[node name="Pillar_010" parent="Sample 2" index="36" unique_id=1902711189]
+material_override = SubResource("ShaderMaterial_gtmbq")
+
+[node name="Wall_058" parent="Sample 2" index="37" unique_id=2091547762]
+material_override = SubResource("ShaderMaterial_gtmbq")
+
+[node name="Wall_065" parent="Sample 2" index="38" unique_id=936604500]
+material_override = SubResource("ShaderMaterial_gtmbq")
+
+[node name="Wall_066" parent="Sample 2" index="39" unique_id=1253242137]
+material_override = SubResource("ShaderMaterial_gtmbq")
+
+[node name="Wall_068" parent="Sample 2" index="40" unique_id=398503797]
+material_override = SubResource("ShaderMaterial_gtmbq")
+
+[node name="Wall_069" parent="Sample 2" index="41" unique_id=1597639522]
+material_override = SubResource("ShaderMaterial_gtmbq")
+
+[node name="Wall window_004" parent="Sample 2" index="42" unique_id=1087954372]
+material_override = SubResource("ShaderMaterial_gtmbq")
+
+[node name="Wall_067" parent="Sample 2" index="43" unique_id=1551072484]
+material_override = SubResource("ShaderMaterial_gtmbq")
+
+[node name="Wall_070" parent="Sample 2" index="44" unique_id=273322385]
+material_override = SubResource("ShaderMaterial_gtmbq")
+
+[node name="Wall_071" parent="Sample 2" index="45" unique_id=1418333078]
+material_override = SubResource("ShaderMaterial_gtmbq")
+
+[node name="Wall_072" parent="Sample 2" index="46" unique_id=1950058632]
+material_override = SubResource("ShaderMaterial_gtmbq")
+
+[node name="Wall_073" parent="Sample 2" index="47" unique_id=1662702298]
+material_override = SubResource("ShaderMaterial_gtmbq")
+
+[node name="Wall_074" parent="Sample 2" index="48" unique_id=1567366071]
+material_override = SubResource("ShaderMaterial_gtmbq")
+
+[node name="Wall_075" parent="Sample 2" index="49" unique_id=889061723]
+material_override = SubResource("ShaderMaterial_gtmbq")
+
+[node name="Wall_076" parent="Sample 2" index="50" unique_id=620681143]
+material_override = SubResource("ShaderMaterial_gtmbq")
+
+[node name="Wall_077" parent="Sample 2" index="51" unique_id=2023754580]
+material_override = SubResource("ShaderMaterial_gtmbq")
+
+[node name="Wall_078" parent="Sample 2" index="52" unique_id=1258585630]
+material_override = SubResource("ShaderMaterial_gtmbq")
+
+[node name="Wall_079" parent="Sample 2" index="53" unique_id=444605339]
+material_override = SubResource("ShaderMaterial_gtmbq")
+
+[node name="Wall_080" parent="Sample 2" index="54" unique_id=807400021]
+material_override = SubResource("ShaderMaterial_gtmbq")
+
+[node name="Wall_081" parent="Sample 2" index="55" unique_id=1428621989]
+material_override = SubResource("ShaderMaterial_gtmbq")
+
+[node name="Wall_082" parent="Sample 2" index="56" unique_id=1136642460]
+material_override = SubResource("ShaderMaterial_gtmbq")
+
+[node name="Wall_083" parent="Sample 2" index="57" unique_id=1042929205]
+material_override = SubResource("ShaderMaterial_gtmbq")
+
+[node name="Wall_084" parent="Sample 2" index="58" unique_id=1901643029]
+material_override = SubResource("ShaderMaterial_gtmbq")
+
+[node name="Wall_085" parent="Sample 2" index="59" unique_id=1986739560]
+material_override = SubResource("ShaderMaterial_gtmbq")
+
+[node name="Wall_086" parent="Sample 2" index="60" unique_id=1846611206]
+material_override = SubResource("ShaderMaterial_gtmbq")
+
+[node name="Wall_095" parent="Sample 2" index="61" unique_id=852235984]
+material_override = SubResource("ShaderMaterial_gtmbq")
+
+[node name="Wall_096" parent="Sample 2" index="62" unique_id=1176468300]
+material_override = SubResource("ShaderMaterial_gtmbq")
+
+[node name="Wall_097" parent="Sample 2" index="63" unique_id=1909205458]
+material_override = SubResource("ShaderMaterial_gtmbq")
+
+[node name="Wall corner_012" parent="Sample 2" index="64" unique_id=1671397351]
+material_override = SubResource("ShaderMaterial_gtmbq")
+
+[node name="Wall corner_013" parent="Sample 2" index="65" unique_id=1283422681]
+material_override = SubResource("ShaderMaterial_gtmbq")
+
+[node name="Wall corner_014" parent="Sample 2" index="66" unique_id=57427771]
+material_override = SubResource("ShaderMaterial_gtmbq")
+
+[node name="Wall corner_015" parent="Sample 2" index="67" unique_id=560626584]
+material_override = SubResource("ShaderMaterial_gtmbq")
+
+[node name="Wall_087" parent="Sample 2" index="68" unique_id=1738736635]
+material_override = SubResource("ShaderMaterial_gtmbq")
+
+[node name="Wall_088" parent="Sample 2" index="69" unique_id=16761360]
+material_override = SubResource("ShaderMaterial_gtmbq")
+
+[node name="Wall_089" parent="Sample 2" index="70" unique_id=334570828]
+material_override = SubResource("ShaderMaterial_gtmbq")
+
+[node name="Wall_090" parent="Sample 2" index="71" unique_id=308617823]
+material_override = SubResource("ShaderMaterial_gtmbq")
+
+[node name="Ramp_002" parent="Sample 2" index="72" unique_id=1870830906]
+material_override = SubResource("ShaderMaterial_gtmbq")
+
+[node name="Ramp_003" parent="Sample 2" index="73" unique_id=1916270098]
+material_override = SubResource("ShaderMaterial_gtmbq")
+
+[node name="Ramp_004" parent="Sample 2" index="74" unique_id=772213947]
+material_override = SubResource("ShaderMaterial_gtmbq")
+
+[node name="Ramp_005" parent="Sample 2" index="75" unique_id=774286913]
+material_override = SubResource("ShaderMaterial_gtmbq")
+
+[node name="Ramp_006" parent="Sample 2" index="76" unique_id=924051260]
+material_override = SubResource("ShaderMaterial_gtmbq")
+
+[node name="Cube_025" parent="Sample 2" index="77" unique_id=528436059]
+material_override = SubResource("ShaderMaterial_gtmbq")
+
+[node name="Cube_021" parent="Sample 2" index="78" unique_id=1335381756]
+material_override = SubResource("ShaderMaterial_gtmbq")
+
+[node name="Cube_014" parent="Sample 2" index="79" unique_id=678392714]
+material_override = SubResource("ShaderMaterial_gtmbq")
+
+[node name="Cube_015" parent="Sample 2" index="80" unique_id=1525322753]
+material_override = SubResource("ShaderMaterial_gtmbq")
+
+[node name="Cube_016" parent="Sample 2" index="81" unique_id=1103077215]
+material_override = SubResource("ShaderMaterial_gtmbq")
+
+[node name="Cube_018" parent="Sample 2" index="82" unique_id=158003272]
+material_override = SubResource("ShaderMaterial_gtmbq")
+
+[node name="Cube_019" parent="Sample 2" index="83" unique_id=1914357637]
+material_override = SubResource("ShaderMaterial_gtmbq")
+
+[node name="Cube_026" parent="Sample 2" index="84" unique_id=2100260238]
+material_override = SubResource("ShaderMaterial_gtmbq")
+
+[node name="Cube_027" parent="Sample 2" index="85" unique_id=385643243]
+material_override = SubResource("ShaderMaterial_gtmbq")
+
+[node name="Cube_028" parent="Sample 2" index="86" unique_id=598351523]
+material_override = SubResource("ShaderMaterial_gtmbq")
+
+[node name="Cube_029" parent="Sample 2" index="87" unique_id=1101326113]
+material_override = SubResource("ShaderMaterial_gtmbq")
+
+[node name="Cube_030" parent="Sample 2" index="88" unique_id=763717475]
+material_override = SubResource("ShaderMaterial_gtmbq")
+
+[node name="Cube_031" parent="Sample 2" index="89" unique_id=409480644]
+material_override = SubResource("ShaderMaterial_gtmbq")
+
+[node name="Cube_032" parent="Sample 2" index="90" unique_id=425914862]
+material_override = SubResource("ShaderMaterial_gtmbq")
+
+[node name="Ramp_007" parent="Sample 2" index="91" unique_id=1961208426]
+material_override = SubResource("ShaderMaterial_gtmbq")
+
+[node name="Cube_023" parent="Sample 2" index="92" unique_id=617771110]
+material_override = SubResource("ShaderMaterial_gtmbq")
+
+[node name="Cube_024" parent="Sample 2" index="93" unique_id=2061571407]
+material_override = SubResource("ShaderMaterial_gtmbq")
+
+[node name="Ramp_008" parent="Sample 2" index="94" unique_id=1406436664]
+material_override = SubResource("ShaderMaterial_gtmbq")
+
+[node name="Cube_034" parent="Sample 2" index="95" unique_id=268717250]
+material_override = SubResource("ShaderMaterial_gtmbq")
+
+[node name="Cube_035" parent="Sample 2" index="96" unique_id=188705211]
+material_override = SubResource("ShaderMaterial_gtmbq")
+
+[node name="Ramp_009" parent="Sample 2" index="97" unique_id=1113066720]
+material_override = SubResource("ShaderMaterial_gtmbq")
+
+[node name="Cube_037" parent="Sample 2" index="98" unique_id=1829256878]
+material_override = SubResource("ShaderMaterial_gtmbq")
+
+[node name="Cube_038" parent="Sample 2" index="99" unique_id=2112019062]
+material_override = SubResource("ShaderMaterial_gtmbq")
+
+[node name="Ramp_010" parent="Sample 2" index="100" unique_id=1705319366]
+material_override = SubResource("ShaderMaterial_gtmbq")
+
+[node name="Cube_040" parent="Sample 2" index="101" unique_id=698140683]
+material_override = SubResource("ShaderMaterial_gtmbq")
+
+[node name="Cube_041" parent="Sample 2" index="102" unique_id=991167243]
+material_override = SubResource("ShaderMaterial_gtmbq")
+
+[node name="Ramp_011" parent="Sample 2" index="103" unique_id=1392699036]
+material_override = SubResource("ShaderMaterial_gtmbq")
+
+[node name="Cube_042" parent="Sample 2" index="104" unique_id=1248728545]
+material_override = SubResource("ShaderMaterial_gtmbq")
+
+[node name="Cube_044" parent="Sample 2" index="105" unique_id=32922716]
+material_override = SubResource("ShaderMaterial_gtmbq")
+
+[node name="Cube_045" parent="Sample 2" index="106" unique_id=1162759875]
+material_override = SubResource("ShaderMaterial_gtmbq")
+
+[node name="Spikes_003" parent="Sample 2" index="107" unique_id=1275356003]
+material_override = SubResource("ShaderMaterial_gtmbq")
+
+[node name="Spikes_001" parent="Sample 2" index="108" unique_id=207993669]
+material_override = SubResource("ShaderMaterial_gtmbq")
+
+[node name="Spikes_002" parent="Sample 2" index="109" unique_id=609248749]
+material_override = SubResource("ShaderMaterial_gtmbq")
+
+[node name="Spikes_004" parent="Sample 2" index="110" unique_id=1561018790]
+material_override = SubResource("ShaderMaterial_gtmbq")
+
+[node name="Spikes_005" parent="Sample 2" index="111" unique_id=346607883]
+material_override = SubResource("ShaderMaterial_gtmbq")
+
+[node name="Spikes_006" parent="Sample 2" index="112" unique_id=1670572154]
+material_override = SubResource("ShaderMaterial_gtmbq")
+
+[node name="Spikes_007" parent="Sample 2" index="113" unique_id=1248130160]
+material_override = SubResource("ShaderMaterial_gtmbq")
+
+[node name="Spikes_008" parent="Sample 2" index="114" unique_id=2523581]
+material_override = SubResource("ShaderMaterial_gtmbq")
+
+[node name="Spikes_009" parent="Sample 2" index="115" unique_id=283298786]
+material_override = SubResource("ShaderMaterial_gtmbq")
+
+[node name="Toggle switch_002" parent="Sample 2" index="116" unique_id=2019794020]
+material_override = SubResource("ShaderMaterial_gtmbq")
+
+[node name="Railing_001" parent="Sample 2" index="117" unique_id=392359381]
+material_override = SubResource("ShaderMaterial_gtmbq")
+
+[node name="Railing edge_001" parent="Sample 2" index="118" unique_id=940527271]
+material_override = SubResource("ShaderMaterial_gtmbq")
+
+[node name="Railing_002" parent="Sample 2" index="119" unique_id=1801974937]
+material_override = SubResource("ShaderMaterial_gtmbq")
+
+[node name="Railing_003" parent="Sample 2" index="120" unique_id=1685525692]
+material_override = SubResource("ShaderMaterial_gtmbq")
+
+[node name="Wall_003" parent="Sample 2" index="121" unique_id=2048753446]
+material_override = SubResource("ShaderMaterial_gtmbq")
+
+[node name="Wall corner top_002" parent="Sample 2" index="122" unique_id=392395649]
+material_override = SubResource("ShaderMaterial_gtmbq")
+
+[node name="Wall corner bottom_015" parent="Sample 2" index="123" unique_id=565077252]
+material_override = SubResource("ShaderMaterial_gtmbq")
+
+[node name="Wall_007" parent="Sample 2" index="124" unique_id=771637881]
+material_override = SubResource("ShaderMaterial_gtmbq")
+
+[node name="Wall_009" parent="Sample 2" index="125" unique_id=1544694805]
+material_override = SubResource("ShaderMaterial_gtmbq")
+
+[node name="Wall_011" parent="Sample 2" index="126" unique_id=1882317220]
+material_override = SubResource("ShaderMaterial_gtmbq")
+
+[node name="Wall_014" parent="Sample 2" index="127" unique_id=1048389779]
+material_override = SubResource("ShaderMaterial_gtmbq")
+
+[node name="Wall_015" parent="Sample 2" index="128" unique_id=1209410333]
+material_override = SubResource("ShaderMaterial_gtmbq")
+
+[node name="Wall_044" parent="Sample 2" index="129" unique_id=967923877]
+material_override = SubResource("ShaderMaterial_gtmbq")
+
+[node name="Wall_045" parent="Sample 2" index="130" unique_id=711736495]
+material_override = SubResource("ShaderMaterial_gtmbq")
+
+[node name="Wall_046" parent="Sample 2" index="131" unique_id=124760580]
+material_override = SubResource("ShaderMaterial_gtmbq")
+
+[node name="Wall_047" parent="Sample 2" index="132" unique_id=618100634]
+material_override = SubResource("ShaderMaterial_gtmbq")
+
+[node name="Wall_048" parent="Sample 2" index="133" unique_id=1111774760]
+material_override = SubResource("ShaderMaterial_gtmbq")
+
+[node name="Wall_049" parent="Sample 2" index="134" unique_id=395375435]
+material_override = SubResource("ShaderMaterial_gtmbq")
+
+[node name="Wall_050" parent="Sample 2" index="135" unique_id=263735600]
+material_override = SubResource("ShaderMaterial_gtmbq")
+
+[node name="Wall_051" parent="Sample 2" index="136" unique_id=1527795001]
+material_override = SubResource("ShaderMaterial_gtmbq")
+
+[node name="Wall_052" parent="Sample 2" index="137" unique_id=1872166215]
+material_override = SubResource("ShaderMaterial_gtmbq")
+
+[node name="Wall_053" parent="Sample 2" index="138" unique_id=1271414805]
+material_override = SubResource("ShaderMaterial_gtmbq")
+
+[node name="Sample 3" parent="." unique_id=378205663 instance=ExtResource("3_gtmbq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.40313, 0.060914993, -0.55872726)
+
+[node name="Cube_071" parent="Sample 3" index="0" unique_id=426988135]
+material_override = SubResource("ShaderMaterial_powkq")
+
+[node name="Cube_072" parent="Sample 3" index="1" unique_id=463216198]
+material_override = SubResource("ShaderMaterial_powkq")
+
+[node name="Wall_113" parent="Sample 3" index="2" unique_id=1359057130]
+material_override = SubResource("ShaderMaterial_powkq")
+
+[node name="Cube_075" parent="Sample 3" index="3" unique_id=696441144]
+material_override = SubResource("ShaderMaterial_powkq")
+
+[node name="Cube_076" parent="Sample 3" index="4" unique_id=857307019]
+material_override = SubResource("ShaderMaterial_powkq")
+
+[node name="Wall_004" parent="Sample 3" index="5" unique_id=1950153067]
+material_override = SubResource("ShaderMaterial_powkq")
+
+[node name="Cube_077" parent="Sample 3" index="6" unique_id=181889498]
+material_override = SubResource("ShaderMaterial_powkq")
+
+[node name="Cube_078" parent="Sample 3" index="7" unique_id=1675114217]
+material_override = SubResource("ShaderMaterial_powkq")
+
+[node name="Cube_080" parent="Sample 3" index="8" unique_id=682825305]
+material_override = SubResource("ShaderMaterial_powkq")
+
+[node name="Cube_082" parent="Sample 3" index="9" unique_id=1992428002]
+material_override = SubResource("ShaderMaterial_powkq")
+
+[node name="Cube_083" parent="Sample 3" index="10" unique_id=1788273285]
+material_override = SubResource("ShaderMaterial_powkq")
+
+[node name="Cube_084" parent="Sample 3" index="11" unique_id=1023466926]
+material_override = SubResource("ShaderMaterial_powkq")
+
+[node name="Cube_085" parent="Sample 3" index="12" unique_id=512638310]
+material_override = SubResource("ShaderMaterial_powkq")
+
+[node name="Cube_086" parent="Sample 3" index="13" unique_id=759896498]
+material_override = SubResource("ShaderMaterial_powkq")
+
+[node name="Cube_087" parent="Sample 3" index="14" unique_id=1076755110]
+material_override = SubResource("ShaderMaterial_powkq")
+
+[node name="Cube_088" parent="Sample 3" index="15" unique_id=900398977]
+material_override = SubResource("ShaderMaterial_powkq")
+
+[node name="Cube_089" parent="Sample 3" index="16" unique_id=546255644]
+material_override = SubResource("ShaderMaterial_powkq")
+
+[node name="Cube_090" parent="Sample 3" index="17" unique_id=279113713]
+material_override = SubResource("ShaderMaterial_powkq")
+
+[node name="Cube_091" parent="Sample 3" index="18" unique_id=1607599875]
+material_override = SubResource("ShaderMaterial_powkq")
+
+[node name="Cube_092" parent="Sample 3" index="19" unique_id=1724880573]
+material_override = SubResource("ShaderMaterial_powkq")
+
+[node name="Cube_093" parent="Sample 3" index="20" unique_id=570922751]
+material_override = SubResource("ShaderMaterial_powkq")
+
+[node name="Cube_094" parent="Sample 3" index="21" unique_id=1474071378]
+material_override = SubResource("ShaderMaterial_powkq")
+
+[node name="Cube_095" parent="Sample 3" index="22" unique_id=1995830453]
+material_override = SubResource("ShaderMaterial_powkq")
+
+[node name="Cube_096" parent="Sample 3" index="23" unique_id=1501248403]
+material_override = SubResource("ShaderMaterial_powkq")
+
+[node name="Ramp_015" parent="Sample 3" index="24" unique_id=1462574586]
+material_override = SubResource("ShaderMaterial_powkq")
+
+[node name="Ramp_016" parent="Sample 3" index="25" unique_id=1721277148]
+material_override = SubResource("ShaderMaterial_powkq")
+
+[node name="Ramp_017" parent="Sample 3" index="26" unique_id=969963094]
+material_override = SubResource("ShaderMaterial_powkq")
+
+[node name="Ramp_018" parent="Sample 3" index="27" unique_id=1546910717]
+material_override = SubResource("ShaderMaterial_powkq")
+
+[node name="Ramp_019" parent="Sample 3" index="28" unique_id=1380633480]
+material_override = SubResource("ShaderMaterial_powkq")
+
+[node name="Ramp_020" parent="Sample 3" index="29" unique_id=2014284570]
+material_override = SubResource("ShaderMaterial_powkq")
+
+[node name="Wall_040" parent="Sample 3" index="30" unique_id=772236529]
+material_override = SubResource("ShaderMaterial_powkq")
+
+[node name="Cube_069" parent="Sample 3" index="31" unique_id=1194172091]
+material_override = SubResource("ShaderMaterial_powkq")
+
+[node name="Cube_070" parent="Sample 3" index="32" unique_id=1488248830]
+material_override = SubResource("ShaderMaterial_powkq")
+
+[node name="Cube_079" parent="Sample 3" index="33" unique_id=951364570]
+material_override = SubResource("ShaderMaterial_powkq")
+
+[node name="Pillar_038" parent="Sample 3" index="34" unique_id=1348323683]
+material_override = SubResource("ShaderMaterial_powkq")
+
+[node name="Pillar_039" parent="Sample 3" index="35" unique_id=83409664]
+material_override = SubResource("ShaderMaterial_powkq")
+
+[node name="Pillar_040" parent="Sample 3" index="36" unique_id=1234380577]
+material_override = SubResource("ShaderMaterial_powkq")
+
+[node name="Pillar_041" parent="Sample 3" index="37" unique_id=1275548797]
+material_override = SubResource("ShaderMaterial_powkq")
+
+[node name="Cube_100" parent="Sample 3" index="38" unique_id=911462502]
+material_override = SubResource("ShaderMaterial_powkq")
+
+[node name="Cube_101" parent="Sample 3" index="39" unique_id=536015924]
+material_override = SubResource("ShaderMaterial_powkq")
+
+[node name="Pillar_007" parent="Sample 3" index="40" unique_id=832465707]
+material_override = SubResource("ShaderMaterial_powkq")
+
+[node name="Cube_001" parent="Sample 3" index="41" unique_id=1482274661]
+material_override = SubResource("ShaderMaterial_powkq")
+
+[node name="Cube_002" parent="Sample 3" index="42" unique_id=2118406087]
+material_override = SubResource("ShaderMaterial_powkq")
+
+[node name="Cube_003" parent="Sample 3" index="43" unique_id=1884690223]
+material_override = SubResource("ShaderMaterial_powkq")
+
+[node name="Cylinder_013" parent="Sample 3" index="44" unique_id=544514068]
+material_override = SubResource("ShaderMaterial_powkq")
+
+[node name="Cylinder_006" parent="Sample 3" index="45" unique_id=837407979]
+material_override = SubResource("ShaderMaterial_powkq")
+
+[node name="Cylinder_007" parent="Sample 3" index="46" unique_id=1212174039]
+material_override = SubResource("ShaderMaterial_powkq")
+
+[node name="Cylinder_008" parent="Sample 3" index="47" unique_id=21449156]
+material_override = SubResource("ShaderMaterial_powkq")
+
+[editable path="Sample 1"]
+[editable path="Sample 2"]
+[editable path="Sample 3"]

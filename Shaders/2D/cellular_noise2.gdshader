@@ -1,5 +1,7 @@
 shader_type canvas_item;
 
+uniform float tiles: hint_range(0.0, 10.0) = 3.0;
+
 vec2 random2(vec2 uv) {
 	return fract(sin(vec2(dot(uv,vec2(127.12,311.7)),dot(uv,vec2(269.5,183.3))))*43758.5453);
 }
@@ -8,7 +10,7 @@ void fragment() {
 	vec3 color = vec3(0.0);
 	
 	// scale
-	vec2 uv = UV * 3.0;
+	vec2 uv = UV * tiles;
 	
 	// tile space
 	vec2 cell = floor(uv);
