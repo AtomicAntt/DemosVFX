@@ -1,4 +1,5 @@
 shader_type spatial;
+render_mode wireframe, unshaded;
 
 varying vec3 world_pos;
 global uniform vec3 effect_origin;
@@ -10,7 +11,10 @@ void vertex() {
 
 void fragment() {
 	if (distance(world_pos, effect_origin) <= effect_radius) {
-		ALBEDO = vec3(0.0);
+		//ALBEDO = vec3(0.0);
+		ALPHA = 1.0;
+	} else {
+		ALPHA = 0.0;
 	}
 }
 
