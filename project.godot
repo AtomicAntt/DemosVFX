@@ -33,3 +33,7 @@ effect_radius={
 "type": "float",
 "value": 50.0
 }
+wireframe_effect_radius={
+"type": "float",
+"value": 0.0
+}

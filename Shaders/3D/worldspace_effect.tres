@@ -1,0 +1,7 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://dvwle7gmqgph6"]
+
+[ext_resource type="Shader" uid="uid://ce1hvjen2ogbk" path="res://Shaders/3D/worldspace_effect.gdshader" id="1_xf8qt"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_xf8qt")
