@@ -21,10 +21,11 @@ sky = SubResource("Sky_h0c7n")
 tonemap_mode = 2
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_h45xw"]
-size = Vector2(100, 100)
+size = Vector2(1000, 1000)
 
 [node name="World3dTest" type="Node3D" unique_id=1246672523 node_paths=PackedStringArray("world_effect_origin")]
 script = ExtResource("1_gtmbq")
+world_effect_speed = 30.0
 world_effect_origin = NodePath("EffectOrigin")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1755332975]
@@ -1198,7 +1199,7 @@ material_override = ExtResource("4_powkq")
 material_overlay = ExtResource("2_gtmbq")
 
 [node name="EffectOrigin" type="Marker3D" parent="." unique_id=1462883972]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15, -5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15, -12)
 
 [editable path="Sample 1"]
 [editable path="Sample 2"]

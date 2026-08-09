@@ -9,9 +9,7 @@ void vertex() {
 }
 
 void fragment() {
-	//float dist = distance(world_pos, effect_origin);
-	// Hmm, let's switch this one to just x coordinates
-	float xdist = distance(vec3(world_pos.x, 0.0, world_pos.z), vec3(effect_origin.x, 0.0, effect_origin.z));
-	ALPHA = step(xdist, effect_radius);
+	float xz_dist = distance(vec3(world_pos.x, 0.0, world_pos.z), vec3(effect_origin.x, 0.0, effect_origin.z));
+	ALPHA = step(xz_dist, effect_radius);
 	ALPHA_SCISSOR_THRESHOLD = 0.5;
 }
