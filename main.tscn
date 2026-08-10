@@ -7,6 +7,7 @@
 [ext_resource type="Shader" uid="uid://m8jw0kqe6s31" path="res://Shaders/3D/circularfade.gdshader" id="5_lquwl"]
 [ext_resource type="Shader" uid="uid://dbgw8t2d4kyvi" path="res://Shaders/3D/fresnel.gdshader" id="7_272bh"]
 [ext_resource type="Shader" uid="uid://o5w1jwcpk30k" path="res://Shaders/3D/wireframe2.gdshader" id="8_5vw27"]
+[ext_resource type="Shader" uid="uid://c876fp335xvm6" path="res://Shaders/3D/vertex_id_test.gdshader" id="8_kek77"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_7dm0k"]
 size = Vector2(100, 100)
@@ -191,10 +192,18 @@ _data = {
 &"Armature|T-Pose": SubResource("Animation_26hyx")
 }
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0o143"]
+render_priority = 0
+shader = ExtResource("8_kek77")
+
+[sub_resource type="BoxMesh" id="BoxMesh_h45xw"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_4c57u"]
+
 [node name="Main" type="Node3D" unique_id=1517051098]
 
 [node name="Floor" type="MeshInstance3D" parent="." unique_id=2057379207]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.37554455, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0.37554455, 1)
 mesh = SubResource("PlaneMesh_7dm0k")
 surface_material_override/0 = SubResource("StandardMaterial3D_ig7tw")
 
@@ -489,3 +498,13 @@ skin = SubResource("Skin_nt7nr")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Character" unique_id=1902135265]
 libraries/ = SubResource("AnimationLibrary_k2ndu")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=551010668]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.774294, 0)
+material_override = SubResource("ShaderMaterial_0o143")
+mesh = SubResource("BoxMesh_h45xw")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=1966644968]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 13.366241, 0)
+material_override = SubResource("ShaderMaterial_0o143")
+mesh = SubResource("CapsuleMesh_4c57u")
