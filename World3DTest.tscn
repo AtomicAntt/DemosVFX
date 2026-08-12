@@ -4,7 +4,7 @@
 [ext_resource type="Material" uid="uid://ctjokefpcfixy" path="res://Shaders/3D/wireframe_worldspace.tres" id="2_gtmbq"]
 [ext_resource type="PackedScene" uid="uid://lgoqc1blwalu" path="res://Assets/Farm Buildings/FBX/TowerWindmill.fbx" id="4_3m82e"]
 [ext_resource type="Material" uid="uid://dvwle7gmqgph6" path="res://Shaders/3D/worldspace_effect.tres" id="4_powkq"]
-[ext_resource type="Material" uid="uid://dvlxy68pu54np" path="res://Shaders/3D/bone_weight_test.tres" id="5_gtmbq"]
+[ext_resource type="Material" uid="uid://dvlxy68pu54np" path="res://Shaders/3D/center_wireframe_scale.tres" id="5_gtmbq"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_powkq"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
