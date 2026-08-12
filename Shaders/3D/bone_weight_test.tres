@@ -1,0 +1,8 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://dvlxy68pu54np"]
+
+[ext_resource type="Shader" uid="uid://cidl0qxcw34en" path="res://Shaders/3D/bone_weight_test.gdshader" id="1_0ieol"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_0ieol")
+shader_parameter/triangle_scale = 1.0

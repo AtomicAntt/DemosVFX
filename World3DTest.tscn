@@ -4,6 +4,7 @@
 [ext_resource type="Material" uid="uid://ctjokefpcfixy" path="res://Shaders/3D/wireframe_worldspace.tres" id="2_gtmbq"]
 [ext_resource type="PackedScene" uid="uid://lgoqc1blwalu" path="res://Assets/Farm Buildings/FBX/TowerWindmill.fbx" id="4_3m82e"]
 [ext_resource type="Material" uid="uid://dvwle7gmqgph6" path="res://Shaders/3D/worldspace_effect.tres" id="4_powkq"]
+[ext_resource type="Material" uid="uid://dvlxy68pu54np" path="res://Shaders/3D/bone_weight_test.tres" id="5_gtmbq"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_powkq"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -53,5 +54,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -16)
 [node name="TowerWindmill" parent="." unique_id=1931311119 instance=ExtResource("4_3m82e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -14)
 
+[node name="TowerWindmill2" parent="." unique_id=2143121317 instance=ExtResource("4_3m82e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 10)
+
+[node name="TowerWindmill" parent="TowerWindmill2" index="0" unique_id=1799518695]
+material_override = ExtResource("5_gtmbq")
+
+[node name="TowerWindmill_Blades" parent="TowerWindmill2" index="1" unique_id=564715940]
+material_override = ExtResource("5_gtmbq")
+
 [editable path="modified_TowerWindmill"]
 [editable path="TowerWindmill"]
+[editable path="TowerWindmill2"]

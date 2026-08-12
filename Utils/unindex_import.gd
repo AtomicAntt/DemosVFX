@@ -46,6 +46,13 @@ func _process_node(node: Node):
 				#mdt.set_vertex_color(v2_idx, center_data)
 				
 				# Cursed but shall it work?
+				# Lets normalize the data since its [0, 1]
+				
+				#center.x = (center.x + 100.0) / (2.0 * 100.0)
+				
+				center = (center + Vector3(100.0, 100.0, 100.0)) / (2.0 * Vector3(100.0, 100.0, 100.0))
+				
+				
 				var center_data: PackedFloat32Array = PackedFloat32Array([center.x, center.y, center.z, 1.0])
 				mdt.set_vertex_weights(v0_idx, center_data)
 				mdt.set_vertex_weights(v1_idx, center_data)
