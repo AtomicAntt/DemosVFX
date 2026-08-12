@@ -14,20 +14,14 @@ func _process_node(node: Node):
 		
 		for i in range(node.mesh.get_surface_count()):
 			var node_mesh: Mesh = node.mesh
+			var material = node_mesh.surface_get_material(i)
+			mdt.create_from_surface(node_mesh, i)
 			
-			#print(node.mesh.surface_get_material(i))
-			st.create_from(node_mesh, i)
-			# De-index mesh so that vertices are duplicated for each triangle
-			# We want this so that the barycentric coordinate shaders can work.
-			st.deindex()
+			st.begin(Mesh.PRIMITIVE_TRIANGLES)
+			st.set_custom_format(0, SurfaceTool.CUSTOM_RGBA_FLOAT)
 			
-			# We also want to later add data to each vertex containing triangle
-			# centers in CUSTOM0 for our shader. 
-			#st.set_custom_format(0, SurfaceTool.CUSTOM_RGBA_FLOAT)
-			#st.commit(new_mesh)
-			
-			var current_mesh: ArrayMesh = st.commit()
-			mdt.create_from_surface(current_mesh, 0)
+			if material:
+				st.set_material(material)
 			
 			for face_idx in mdt.get_face_count():
 				var v0_idx: int = mdt.get_face_vertex(face_idx, 0)
@@ -39,32 +33,29 @@ func _process_node(node: Node):
 				var v2: Vector3 = mdt.get_vertex(v2_idx)
 				
 				var center: Vector3 = (v0 + v1 + v2) / 3.0
+				var center_data: Color = Color(center.x, center.y, center.z, 1.0)
 				
-				#var center_data: Color = Color(center.x, center.y, center.z, 1.0)
-				#mdt.set_vertex_color(v0_idx, center_data)
-				#mdt.set_vertex_color(v1_idx, center_data)
-				#mdt.set_vertex_color(v2_idx, center_data)
-				
-				# Cursed but shall it work?
-				# Lets normalize the data since its [0, 1]
-				
-				#center.x = (center.x + 100.0) / (2.0 * 100.0)
-				
-				center = (center + Vector3(10.0, 10.0, 10.0)) / (2.0 * Vector3(10.0, 10.0, 10.0))
-				
-				
-				var center_data: PackedFloat32Array = PackedFloat32Array([center.x, center.y, center.z, 1.0])
-				mdt.set_vertex_weights(v0_idx, center_data)
-				mdt.set_vertex_weights(v1_idx, center_data)
-				mdt.set_vertex_weights(v2_idx, center_data)
+				# Vertex 0
+				st.set_normal(mdt.get_vertex_normal(v0_idx))
+				st.set_uv(mdt.get_vertex_uv(v0_idx))
+				st.set_custom(0, center_data)
+				st.add_vertex(v0)
+				# Vertex 1
+				st.set_normal(mdt.get_vertex_normal(v1_idx))
+				st.set_uv(mdt.get_vertex_uv(v1_idx))
+				st.set_custom(0, center_data)
+				st.add_vertex(v1)
+				# Vertex 2
+				st.set_normal(mdt.get_vertex_normal(v2_idx))
+				st.set_uv(mdt.get_vertex_uv(v2_idx))
+				st.set_custom(0, center_data)
+				st.add_vertex(v2)
 			
-			mdt.commit_to_surface(new_mesh)
-		
-		# Now, we want to get the vertices in each face of the mesh, and 
+			st.generate_normals()
+			st.generate_tangents()
+			st.commit(new_mesh)
 		
 		node.mesh = new_mesh
-		
-		
 		
 	for child in node.get_children():
 		_process_node(child)
