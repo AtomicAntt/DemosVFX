@@ -23,7 +23,6 @@ func _process_node(node: Node):
 			
 			# We also want to later add data to each vertex containing triangle
 			# centers in CUSTOM0 for our shader. 
-			st.set_custom_format(0, SurfaceTool.CUSTOM_RGBA_FLOAT)
 			#st.commit(new_mesh)
 			
 			var current_mesh: ArrayMesh = st.commit()
@@ -40,10 +39,16 @@ func _process_node(node: Node):
 				
 				var center: Vector3 = (v0 + v1 + v2) / 3.0
 				
-				var center_data: Color = Color(center.x, center.y, center.z, 1.0)
-				mdt.set_vertex_color(v0_idx, center_data)
-				mdt.set_vertex_color(v1_idx, center_data)
-				mdt.set_vertex_color(v2_idx, center_data)
+				#var center_data: Color = Color(center.x, center.y, center.z, 1.0)
+				#mdt.set_vertex_color(v0_idx, center_data)
+				#mdt.set_vertex_color(v1_idx, center_data)
+				#mdt.set_vertex_color(v2_idx, center_data)
+				
+				# Cursed but shall it work?
+				var center_data: PackedFloat32Array = PackedFloat32Array([center.x, center.y, center.z, 1.0])
+				mdt.set_vertex_weights(v0_idx, center_data)
+				mdt.set_vertex_weights(v1_idx, center_data)
+				mdt.set_vertex_weights(v2_idx, center_data)
 			
 			mdt.commit_to_surface(new_mesh)
 		
