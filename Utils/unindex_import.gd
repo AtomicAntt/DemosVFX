@@ -50,7 +50,7 @@ func _process_node(node: Node):
 				
 				#center.x = (center.x + 100.0) / (2.0 * 100.0)
 				
-				center = (center + Vector3(100.0, 100.0, 100.0)) / (2.0 * Vector3(100.0, 100.0, 100.0))
+				center = (center + Vector3(10.0, 10.0, 10.0)) / (2.0 * Vector3(10.0, 10.0, 10.0))
 				
 				
 				var center_data: PackedFloat32Array = PackedFloat32Array([center.x, center.y, center.z, 1.0])
