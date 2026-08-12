@@ -21,8 +21,9 @@ func _process_node(node: Node):
 			# We want this so that the barycentric coordinate shaders can work.
 			st.deindex()
 			
-			var arrays: Array = st.commit_to_arrays()
-			var vertices: Array = arrays[Mesh.ARRAY_VERTEX]
+			# We also want to later add data to each vertex containing triangle
+			# centers in CUSTOM0 for our shader. 
+			#st.commit(new_mesh)
 			
 			var custom0: PackedColorArray = PackedColorArray()
 			custom0.resize(vertices.size())
@@ -34,15 +35,16 @@ func _process_node(node: Node):
 				
 				var center: Vector3 = (v0 + v1 + v2) / 3.0
 				
-				var center_data: Color = Color(center.x, center.y, center.z, 1.0)
+				#var center_data: Color = Color(center.x, center.y, center.z, 1.0)
+				#mdt.set_vertex_color(v0_idx, center_data)
+				#mdt.set_vertex_color(v1_idx, center_data)
+				#mdt.set_vertex_color(v2_idx, center_data)
 				
-				custom0[v_idx] = center_data
-				custom0[v_idx + 1] = center_data
-				custom0[v_idx + 2] = center_data
-			
-			arrays[Mesh.ARRAY_CUSTOM0] = custom0
-			
-			new_mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, arrays)
+				# Cursed but shall it work?
+				var center_data: PackedFloat32Array = PackedFloat32Array([center.x, center.y, center.z, 1.0])
+				mdt.set_vertex_weights(v0_idx, center_data)
+				mdt.set_vertex_weights(v1_idx, center_data)
+				mdt.set_vertex_weights(v2_idx, center_data)
 			
 		node.mesh = new_mesh
 		
