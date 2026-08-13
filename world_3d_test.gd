@@ -9,7 +9,7 @@ extends Node3D
 var tween: Tween
 
 ## In m/s
-@export var world_effect_speed: float = 150.0
+@export var world_effect_speed: float = 10.0
 ## In m
 @export var world_effect_radius: float = 50.0
 
@@ -19,8 +19,8 @@ func animate() -> void:
 	set_effect_origin()
 	reset()
 	tween = create_tween()
-	tween.tween_method(set_wireframe_effect_radius, 0.0, world_effect_radius, world_effect_radius / world_effect_speed)
-	tween.tween_method(set_effect_radius, 0.0, world_effect_radius, world_effect_radius / world_effect_speed).set_trans(Tween.TRANS_EXPO)
+	tween.tween_method(set_effect_radius, 0.0, world_effect_radius, world_effect_radius / world_effect_speed)
+	
 
 func animate_out() -> void:
 	set_effect_origin()
