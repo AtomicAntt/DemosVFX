@@ -25,11 +25,11 @@ func animate() -> void:
 func animate_out() -> void:
 	set_effect_origin()
 	set_effect_radius(world_effect_radius)
-	set_wireframe_effect_radius(world_effect_radius)
+	#set_wireframe_effect_radius(world_effect_radius)
 	
 	tween = create_tween()
-	tween.tween_method(set_effect_radius, world_effect_radius, 0.0, world_effect_radius / world_effect_speed).set_trans(Tween.TRANS_EXPO)
-	tween.tween_method(set_wireframe_effect_radius, world_effect_radius, 0.0, world_effect_radius / world_effect_speed)
+	tween.tween_method(set_effect_radius, world_effect_radius, 0.0, world_effect_radius / world_effect_speed)
+	#tween.tween_method(set_wireframe_effect_radius, world_effect_radius, 0.0, world_effect_radius / world_effect_speed)
 
 func reset() -> void:
 	if is_instance_valid(tween):
