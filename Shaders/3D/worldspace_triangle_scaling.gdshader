@@ -1,5 +1,4 @@
 shader_type spatial;
-//render_mode depth_prepass_alpha;
 
 uniform vec4 modelColor : source_color;
 uniform vec4 wireframeColor : source_color;
@@ -63,7 +62,7 @@ void fragment() {
 	closestEdge -= modelOpacity;
 	ALPHA = mix(1., modelOpacity, closestEdge);
 	ALPHA_SCISSOR_THRESHOLD = 0.5;
-	ALPHA_HASH_SCALE = 1.0;
+	//ALPHA_HASH_SCALE = 1.0;
 }
 
 void light() {
