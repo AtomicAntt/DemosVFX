@@ -1,9 +1,12 @@
 [gd_scene format=3 uid="uid://bh2txmfafx6bl"]
 
 [ext_resource type="Script" uid="uid://bywb8a36gf8qs" path="res://world_3d_test.gd" id="1_gtmbq"]
-[ext_resource type="Material" uid="uid://dvwle7gmqgph6" path="res://Shaders/3D/Materials/Worldspace/worldspace_effect.tres" id="2_3m82e"]
 [ext_resource type="Material" uid="uid://c26wnvwccdm6b" path="res://Shaders/3D/Materials/Worldspace/worldspace_triangle_scale.tres" id="3_8sdlt"]
 [ext_resource type="PackedScene" uid="uid://lgoqc1blwalu" path="res://Assets/Farm Buildings/FBX/TowerWindmill.fbx" id="4_3m82e"]
+[ext_resource type="PackedScene" uid="uid://ckf5xndpjhvb3" path="res://Assets/Farm Buildings/FBX/BigBarn.fbx" id="4_powkq"]
+[ext_resource type="PackedScene" uid="uid://dmoa61rc0h8le" path="res://Assets/Farm Buildings/FBX/Well.fbx" id="5_h0c7n"]
+[ext_resource type="PackedScene" uid="uid://dmt88cm7xs2dq" path="res://Assets/Farm Buildings/FBX/Fence.fbx" id="6_ugojs"]
+[ext_resource type="PackedScene" uid="uid://jjf0ey4i2j6e" path="res://Assets/House Plants/gltf/cacti_plant_pot_large.gltf" id="7_h0c7n"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_powkq"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -18,14 +21,19 @@ background_color = Color(0.45490196, 0.45490196, 0.45490196, 1)
 sky = SubResource("Sky_h0c7n")
 tonemap_mode = 2
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3m82e"]
+albedo_color = Color(0.2897351, 0.4969107, 0.09446614, 1)
+
 [sub_resource type="PlaneMesh" id="PlaneMesh_h45xw"]
 size = Vector2(1000, 1000)
 
 [sub_resource type="BoxMesh" id="BoxMesh_80iay"]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_h45xw"]
+
 [node name="World3dTest" type="Node3D" unique_id=1246672523 node_paths=PackedStringArray("world_effect_origin")]
 script = ExtResource("1_gtmbq")
-world_effect_speed = 0.1
+world_effect_speed = 3.0
 world_effect_origin = NodePath("EffectOrigin")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1755332975]
@@ -36,7 +44,7 @@ shadow_enabled = true
 environment = SubResource("Environment_ugojs")
 
 [node name="Floor" type="MeshInstance3D" parent="." unique_id=1322648402]
-material_override = ExtResource("2_3m82e")
+material_override = SubResource("StandardMaterial3D_3m82e")
 mesh = SubResource("PlaneMesh_h45xw")
 
 [node name="EffectOrigin" type="Marker3D" parent="." unique_id=1462883972]
@@ -49,12 +57,60 @@ mesh = SubResource("BoxMesh_80iay")
 [node name="TowerWindmill2" parent="." unique_id=2143121317 instance=ExtResource("4_3m82e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, -17)
 
-[node name="TowerWindmill" parent="TowerWindmill2" index="0" unique_id=2020916512]
+[node name="TowerWindmill" parent="TowerWindmill2" index="0" unique_id=186142473]
 transform = Transform3D(100, 0, 0, 0, -1.1920929e-05, 99.99999, 0, -99.99999, -1.1920929e-05, 1, -0.03471899, -0.10157776)
-material_override = ExtResource("3_8sdlt")
 
-[node name="TowerWindmill_Blades" parent="TowerWindmill2" index="1" unique_id=1079678314]
+[node name="TowerWindmill_Blades" parent="TowerWindmill2" index="1" unique_id=1116189986]
 transform = Transform3D(100, 0, 0, 0, -1.1920929e-05, 99.99999, 0, -99.99999, -1.1920929e-05, 1, 7.403742, 1.7051601)
 material_override = ExtResource("3_8sdlt")
 
+[node name="BigBarn" parent="." unique_id=1028333936 instance=ExtResource("4_powkq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, 0, -10)
+
+[node name="BigBarn" parent="BigBarn" index="0" unique_id=1593707048]
+transform = Transform3D(100, 0, 0, 0, -1.1920929e-05, 99.99999, 0, -99.99999, -1.1920929e-05, -22, 0, -11)
+
+[node name="BigBarn_Door" parent="BigBarn" index="1" unique_id=1605814925]
+transform = Transform3D(100, 0, 0, 0, -1.1920929e-05, 99.99999, 0, -99.99999, -1.1920929e-05, -20.053955, 1.3285939, -7.166004)
+
+[node name="BigBarn_Door2" parent="BigBarn" index="2" unique_id=1089356746]
+transform = Transform3D(100, 0, 0, 0, -1.1920929e-05, 99.99999, 0, -99.99999, -1.1920929e-05, -24.05577, 1.3285939, -7.166004)
+
+[node name="BigBarn_Window" parent="BigBarn" index="3" unique_id=2026679109]
+transform = Transform3D(100, 0, 0, 0, -1.1920929e-05, 99.99999, 0, -99.99999, -1.1920929e-05, -21.290264, 3.9358017, -6.9430466)
+
+[node name="BigBarn_Window2" parent="BigBarn" index="4" unique_id=2066136620]
+transform = Transform3D(100, 0, 0, 0, -1.1920929e-05, 99.99999, 0, -99.99999, -1.1920929e-05, -22.677456, 3.9358017, -6.932644)
+
+[node name="Well" parent="." unique_id=46976419 instance=ExtResource("5_h0c7n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -12)
+
+[node name="Well" parent="Well" index="0" unique_id=57809331]
+transform = Transform3D(100, 0, 0, 0, -1.1920929e-05, 99.99999, 0, -99.99999, -1.1920929e-05, 8, 3.153899e-08, -1)
+
+[node name="Fence" parent="." unique_id=213611088 instance=ExtResource("6_ugojs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 0, -17)
+
+[node name="Fence2" parent="." unique_id=1844500541 instance=ExtResource("6_ugojs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -13)
+
+[node name="Fence3" parent="." unique_id=1113304573 instance=ExtResource("6_ugojs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, -11)
+
+[node name="cacti_plant_pot_large2" parent="." unique_id=1932859290 instance=ExtResource("7_h0c7n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 0, -20)
+
+[node name="TowerWindmill" parent="." unique_id=1567433229 instance=ExtResource("4_3m82e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27, 0, -14)
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=1148270807]
+material_override = SubResource("ShaderMaterial_h45xw")
+
 [editable path="TowerWindmill2"]
+[editable path="BigBarn"]
+[editable path="Well"]
+[editable path="Fence"]
+[editable path="Fence2"]
+[editable path="Fence3"]
+[editable path="cacti_plant_pot_large2"]
+[editable path="TowerWindmill"]

@@ -1,6 +1,9 @@
 @tool
 extends EditorScenePostImport
 
+## Path to the material of our target shader. This one uses only ALBEDO and not Texture
+var worldspace_triangle_scale: String = "res://Shaders/3D/Materials/Worldspace/worldspace_triangle_scale.tres"
+
 func _post_import(scene: Node) -> Node:
 	_process_node(scene)
 	return scene
@@ -14,14 +17,22 @@ func _process_node(node: Node):
 		
 		for i in range(node.mesh.get_surface_count()):
 			var node_mesh: Mesh = node.mesh
-			var material = node_mesh.surface_get_material(i)
+			var material: Material = node_mesh.surface_get_material(i)
 			mdt.create_from_surface(node_mesh, i)
 			
 			st.begin(Mesh.PRIMITIVE_TRIANGLES)
 			st.set_custom_format(0, SurfaceTool.CUSTOM_RGBA_FLOAT)
 			
+			# Replace the model material's with the material of our target shader.
 			if material:
-				st.set_material(material)
+				if material is StandardMaterial3D:
+					material = material as StandardMaterial3D
+					var shader_material: ShaderMaterial = load(worldspace_triangle_scale)
+					var duplicate_material: ShaderMaterial = shader_material.duplicate()
+					duplicate_material.set_shader_parameter("modelColor", material.albedo_color)
+					st.set_material(duplicate_material)
+				else:
+					st.set_material(material)
 			
 			for face_idx in mdt.get_face_count():
 				var v0_idx: int = mdt.get_face_vertex(face_idx, 0)
