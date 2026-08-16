@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bh2txmfafx6bl"]
 
 [ext_resource type="Script" uid="uid://bywb8a36gf8qs" path="res://world_3d_test.gd" id="1_gtmbq"]
-[ext_resource type="Material" uid="uid://c26wnvwccdm6b" path="res://Shaders/3D/Materials/Worldspace/worldspace_triangle_scale.tres" id="3_8sdlt"]
+[ext_resource type="Shader" uid="uid://b71v3r2pdldj6" path="res://Shaders/3D/worldspace_triangle_scaling.gdshader" id="3_h0c7n"]
 [ext_resource type="PackedScene" uid="uid://lgoqc1blwalu" path="res://Assets/Farm Buildings/FBX/TowerWindmill.fbx" id="4_3m82e"]
 [ext_resource type="PackedScene" uid="uid://ckf5xndpjhvb3" path="res://Assets/Farm Buildings/FBX/BigBarn.fbx" id="4_powkq"]
 [ext_resource type="PackedScene" uid="uid://dmoa61rc0h8le" path="res://Assets/Farm Buildings/FBX/Well.fbx" id="5_h0c7n"]
@@ -28,11 +28,20 @@ size = Vector2(1000, 1000)
 
 [sub_resource type="BoxMesh" id="BoxMesh_80iay"]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_h0c7n"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("3_h0c7n")
+shader_parameter/modelColor = Color(0.6086596, 0.50237745, 0.36134112, 1)
+shader_parameter/wireframeColor = Color(1, 1, 1, 1)
+shader_parameter/width = 1.200000057
+shader_parameter/filtered = true
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_h45xw"]
 
 [node name="World3dTest" type="Node3D" unique_id=1246672523 node_paths=PackedStringArray("world_effect_origin")]
 script = ExtResource("1_gtmbq")
-world_effect_speed = 2.0
+world_effect_speed = 2.5
 world_effect_radius = 30.0
 world_effect_origin = NodePath("EffectOrigin")
 
@@ -58,12 +67,12 @@ mesh = SubResource("BoxMesh_80iay")
 [node name="TowerWindmill2" parent="." unique_id=2143121317 instance=ExtResource("4_3m82e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, -17)
 
-[node name="TowerWindmill" parent="TowerWindmill2" index="0" unique_id=186142473]
+[node name="TowerWindmill" parent="TowerWindmill2" index="0" unique_id=1467640092]
 transform = Transform3D(100, 0, 0, 0, -1.1920929e-05, 99.99999, 0, -99.99999, -1.1920929e-05, 1, -0.03471899, -0.10157776)
 
-[node name="TowerWindmill_Blades" parent="TowerWindmill2" index="1" unique_id=1116189986]
+[node name="TowerWindmill_Blades" parent="TowerWindmill2" index="1" unique_id=179176554]
 transform = Transform3D(100, 0, 0, 0, -1.1920929e-05, 99.99999, 0, -99.99999, -1.1920929e-05, 1, 7.403742, 1.7051601)
-material_override = ExtResource("3_8sdlt")
+material_override = SubResource("ShaderMaterial_h0c7n")
 
 [node name="BigBarn" parent="." unique_id=1028333936 instance=ExtResource("4_powkq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0, -10)
@@ -101,7 +110,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, -11)
 [node name="cacti_plant_pot_large2" parent="." unique_id=1932859290 instance=ExtResource("7_h0c7n")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 0, -20)
 
-[node name="cacti_plant_pot_large" parent="cacti_plant_pot_large2" index="0" unique_id=375455522]
+[node name="cacti_plant_pot_large" parent="cacti_plant_pot_large2" index="0" unique_id=264136560]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21, 0, 0)
 
 [node name="TowerWindmill" parent="." unique_id=1567433229 instance=ExtResource("4_3m82e")]
@@ -111,7 +120,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -21)
 material_override = SubResource("ShaderMaterial_h45xw")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1732413670]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, -18)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 5, -18)
 
 [editable path="TowerWindmill2"]
 [editable path="BigBarn"]

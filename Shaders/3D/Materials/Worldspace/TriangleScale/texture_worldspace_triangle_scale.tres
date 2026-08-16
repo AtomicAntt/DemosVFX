@@ -1,0 +1,11 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://8443u2ra2rda"]
+
+[ext_resource type="Shader" uid="uid://buu0fdts2utd0" path="res://Shaders/3D/texture_worldspace_triangle_scaling.gdshader" id="1_c15b6"]
+
+[resource]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("1_c15b6")
+shader_parameter/wireframeColor = Color(1, 1, 1, 1)
+shader_parameter/width = 1.200000057
+shader_parameter/filtered = true

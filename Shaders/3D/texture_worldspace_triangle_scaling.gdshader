@@ -1,6 +1,7 @@
 shader_type spatial;
 
-uniform vec4 modelColor : source_color;
+//uniform vec4 modelColor : source_color;
+uniform sampler2D modelTexture;
 uniform vec4 wireframeColor : source_color;
 uniform float width : hint_range(0.0, 15.) = 1.;
 
@@ -37,6 +38,8 @@ void vertex() {
 }
 
 void fragment() {
+	vec4 textureColor = texture(modelTexture, UV);
+	
 	vec3 dBaryCoordX = dFdx(baryCoord);
 	vec3 dBaryCoordY = dFdy(baryCoord);
 	vec3 dBaryCoord  = sqrt(dBaryCoordX*dBaryCoordX + dBaryCoordY*dBaryCoordY);
@@ -58,7 +61,7 @@ void fragment() {
 
 	float closestEdge = min(min(remap.x, remap.y), remap.z);
 
-	ALBEDO = mix(wireframeColor, modelColor, closestEdge).xyz;
+	ALBEDO = mix(wireframeColor, textureColor, closestEdge).xyz;
 	closestEdge -= modelOpacity;
 	ALPHA = mix(1., modelOpacity, closestEdge);
 	ALPHA_SCISSOR_THRESHOLD = 0.5;

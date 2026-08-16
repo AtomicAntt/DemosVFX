@@ -2,7 +2,8 @@
 extends EditorScenePostImport
 
 ## Path to the material of our target shader. This one uses only ALBEDO and not Texture
-var worldspace_triangle_scale: String = "res://Shaders/3D/Materials/Worldspace/worldspace_triangle_scale.tres"
+var worldspace_triangle_scale: String = "res://Shaders/3D/Materials/Worldspace/TriangleScale/worldspace_triangle_scale.tres"
+var texture_worldspace_triangle_scale: String = "res://Shaders/3D/Materials/Worldspace/TriangleScale/texture_worldspace_triangle_scale.tres"
 
 func _post_import(scene: Node) -> Node:
 	_process_node(scene)
@@ -27,9 +28,15 @@ func _process_node(node: Node):
 			if material:
 				if material is StandardMaterial3D:
 					material = material as StandardMaterial3D
-					var shader_material: ShaderMaterial = load(worldspace_triangle_scale)
-					var duplicate_material: ShaderMaterial = shader_material.duplicate()
-					duplicate_material.set_shader_parameter("modelColor", material.albedo_color)
+					var duplicate_material: ShaderMaterial
+					if is_instance_valid(material.albedo_texture):
+						var shader_material: ShaderMaterial = load(texture_worldspace_triangle_scale)
+						duplicate_material = shader_material.duplicate()
+						duplicate_material.set_shader_parameter("modelTexture", material.albedo_texture)
+					else:
+						var shader_material: ShaderMaterial = load(worldspace_triangle_scale)
+						duplicate_material = shader_material.duplicate()
+						duplicate_material.set_shader_parameter("modelColor", material.albedo_color)
 					st.set_material(duplicate_material)
 				else:
 					st.set_material(material)
