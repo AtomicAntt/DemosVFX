@@ -1,7 +1,7 @@
 shader_type spatial;
 
 //uniform vec4 modelColor : source_color;
-uniform sampler2D modelTexture;
+uniform sampler2D modelTexture : source_color;
 uniform vec4 wireframeColor : source_color;
 uniform float width : hint_range(0.0, 15.) = 1.;
 
