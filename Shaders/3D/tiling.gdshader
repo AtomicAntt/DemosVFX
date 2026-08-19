@@ -1,15 +1,15 @@
 shader_type spatial;
-render_mode blend_mix, depth_draw_opaque, cull_disabled;
+render_mode blend_mix, depth_draw_opaque, cull_disabled, unshaded;
 
 uniform vec4 albedo : source_color;
-uniform sampler2D texture_albedo;
+uniform sampler2D texture_albedo : source_color;
 uniform vec2 tiling = vec2(2.0, 2.0);
 uniform vec2 offset = vec2(1.0, 0.0);
 
 varying vec2 uv_interp;
 
 void vertex() {
-	uv_interp = UV * tiling + offset * TIME;
+	uv_interp = (UV * tiling) + (offset * TIME);
 }
 
 void fragment() {
